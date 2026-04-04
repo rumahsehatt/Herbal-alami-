@@ -466,6 +466,27 @@
 
                     <hr class="border-gray-200 mb-5">
 
+                    <!-- Google Login Toggle -->
+                    <h3 class="font-bold text-gray-800 mb-3"><i class="fab fa-google text-red-500 mr-2"></i>Login dengan Google</h3>
+                    <p class="text-sm text-gray-500 mb-4">Aktifkan agar tombol "Lanjutkan dengan Google" muncul di halaman login & daftar.</p>
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200">
+                        <div>
+                            <p class="font-semibold text-sm text-gray-700">Tombol Google di Auth Modal</p>
+                            <p class="text-xs text-gray-400 mt-0.5" id="googleStatusText">Sedang memuat...</p>
+                        </div>
+                        <!-- Toggle switch -->
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="googleToggle" class="sr-only peer" onchange="toggleGoogleLogin(this.checked)">
+                            <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer
+                                peer-checked:bg-green-500 transition-all duration-200
+                                after:content-[''] after:absolute after:top-0.5 after:left-0.5
+                                after:bg-white after:rounded-full after:h-5 after:w-5
+                                after:transition-all peer-checked:after:translate-x-5"></div>
+                        </label>
+                    </div>
+
+                    <hr class="border-gray-200 my-5">
+
                     <h3 class="font-bold text-gray-800 mb-3"><i class="fas fa-user-shield text-blue-500 mr-2"></i>Ubah Password Admin</h3>
                     <div class="form-group">
                         <label class="label">Password Baru</label>
@@ -1277,6 +1298,28 @@
                 document.getElementById('waNumber').value = cfg.waNumber;
                 OWNER_WA = cfg.waNumber;
             }
+            // Load Google login toggle state
+            const googleAktif = cfg.googleLoginAktif === true;
+            const toggle = document.getElementById('googleToggle');
+            const statusText = document.getElementById('googleStatusText');
+            if(toggle) toggle.checked = googleAktif;
+            if(statusText) statusText.textContent = googleAktif ? '✅ Aktif — tombol Google terlihat di toko' : '🔒 Nonaktif — tombol Google tersembunyi';
+        });
+    }
+
+    function toggleGoogleLogin(aktif) {
+        db.ref('pengaturan/googleLoginAktif').set(aktif).then(() => {
+            const statusText = document.getElementById('googleStatusText');
+            if(statusText) statusText.textContent = aktif
+                ? '✅ Aktif — tombol Google terlihat di toko'
+                : '🔒 Nonaktif — tombol Google tersembunyi';
+            showToast(aktif ? '✅ Login Google diaktifkan' : '🔒 Login Google dinonaktifkan',
+                aktif ? 'success' : 'info');
+        }).catch(err => {
+            showToast('❌ Gagal menyimpan: ' + err.message, 'error');
+            // Revert toggle jika gagal
+            const toggle = document.getElementById('googleToggle');
+            if(toggle) toggle.checked = !aktif;
         });
     }
 
