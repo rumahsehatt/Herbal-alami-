@@ -12,20 +12,16 @@
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 <style>
 :root{--g:#166534;--g2:#16a34a;--g3:#dcfce7;--bg:#f9faf5;--bd:#e5e7eb;--tx:#1a1a1a;--mu:#6b7280}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:"Plus Jakarta Sans",sans-serif;background:var(--bg);color:var(--tx)}
-h1,h2,h3{font-family:"Playfair Display",serif}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--g2);border-radius:3px}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Plus Jakarta Sans",sans-serif;background:var(--bg);color:var(--tx)}
+h1,h2,h3{font-family:"Playfair Display",serif}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--g2);border-radius:3px}
 .navbar{background:linear-gradient(135deg,#14532d,#166534,#15803d);position:sticky;top:0;z-index:50;box-shadow:0 2px 20px rgba(22,101,52,.4)}
 .navlink{color:rgba(255,255,255,.85);font-weight:500;transition:.2s;padding:6px 12px;border-radius:8px;font-size:14px;text-decoration:none}
 .navlink:hover{color:#fff;background:rgba(255,255,255,.15)}
 .hero{background:linear-gradient(135deg,#14532d,#166534,#15803d,#16a34a);position:relative;overflow:hidden}
 .pcard{background:#fff;border-radius:20px;overflow:hidden;transition:all .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 4px 15px rgba(0,0,0,.06);border:1px solid rgba(22,163,74,.1)}
 .pcard:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(22,101,52,.15)}
-.sl-wrap{position:relative;overflow:hidden}
-.sl-track{display:flex;transition:transform .35s cubic-bezier(.4,0,.2,1)}
-.sl-slide{min-width:100%;cursor:pointer}
-.sl-slide img{display:block;pointer-events:none;width:100%;height:208px;object-fit:cover}
+.sl-wrap{position:relative;overflow:hidden}.sl-track{display:flex;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.sl-slide{min-width:100%;cursor:pointer}.sl-slide img{display:block;pointer-events:none;width:100%;height:208px;object-fit:cover}
 .sl-btn{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.85);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;color:var(--g);box-shadow:0 2px 8px rgba(0,0,0,.18);z-index:10;transition:.2s}
 .sl-btn:hover{background:#fff}.sl-prev{left:8px}.sl-next{right:8px}
 .sl-dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:5px}
@@ -33,8 +29,7 @@ h1,h2,h3{font-family:"Playfair Display",serif}
 .sl-dot.active{background:#fff;width:18px;border-radius:3px}
 .sl-ctr{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.5);color:#fff;font-size:11px;padding:2px 7px;border-radius:20px}
 .fmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9999;align-items:center;justify-content:center;cursor:pointer}
-.fmodal.show{display:flex}
-.fmodal img{max-width:90%;max-height:88vh;object-fit:contain;border-radius:8px;cursor:default}
+.fmodal.show{display:flex}.fmodal img{max-width:90%;max-height:88vh;object-fit:contain;border-radius:8px;cursor:default}
 .fnbtn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:.2s}
 .fnbtn:hover{background:rgba(255,255,255,.3)}.fnprev{left:16px}.fnnext{right:16px}
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;z-index:1000;padding:16px}
@@ -57,17 +52,12 @@ h1,h2,h3{font-family:"Playfair Display",serif}
 .atab{flex:1;padding:11px;text-align:center;font-weight:600;font-size:14px;cursor:pointer;border-radius:12px;transition:.2s;color:var(--mu)}
 .atab.active{background:linear-gradient(135deg,#166534,#16a34a);color:#fff;box-shadow:0 4px 12px rgba(22,163,74,.3)}
 .sbadge{display:inline-flex;align-items:center;gap:4px;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:700}
-.sm{background:#fef9c3;color:#854d0e;border:1.5px solid #fbbf24}
-.sp{background:#dbeafe;color:#1e40af;border:1.5px solid #3b82f6}
-.sd{background:#f3e8ff;color:#6b21a8;border:1.5px solid #8b5cf6}
-.ss{background:#dcfce7;color:#166534;border:1.5px solid #22c55e}
-.st{background:#fee2e2;color:#991b1b;border:1.5px solid #ef4444}
-.sk{background:#f1f5f9;color:#475569;border:1.5px solid #cbd5e1}
+.sm{background:#fef9c3;color:#854d0e;border:1.5px solid #fbbf24}.sp{background:#dbeafe;color:#1e40af;border:1.5px solid #3b82f6}
+.sd{background:#f3e8ff;color:#6b21a8;border:1.5px solid #8b5cf6}.ss{background:#dcfce7;color:#166534;border:1.5px solid #22c55e}
+.st{background:#fee2e2;color:#991b1b;border:1.5px solid #ef4444}.sk{background:#f1f5f9;color:#475569;border:1.5px solid #cbd5e1}
 .toast{position:fixed;bottom:24px;right:24px;padding:14px 18px;border-radius:14px;color:#fff;font-weight:600;font-size:14px;z-index:9999;max-width:360px;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.2);animation:tIn .3s ease}
 @keyframes tIn{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
-.toast.success{background:linear-gradient(135deg,#166534,#16a34a)}
-.toast.error{background:linear-gradient(135deg,#991b1b,#dc2626)}
-.toast.info{background:linear-gradient(135deg,#1e40af,#3b82f6)}
+.toast.success{background:linear-gradient(135deg,#166534,#16a34a)}.toast.error{background:linear-gradient(135deg,#991b1b,#dc2626)}.toast.info{background:linear-gradient(135deg,#1e40af,#3b82f6)}
 .spin{display:inline-block;width:32px;height:32px;border:4px solid var(--bd);border-top-color:var(--g2);border-radius:50%;animation:sp .8s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
 .cd{font-family:monospace;font-weight:700;background:#fef2f2;color:#dc2626;padding:4px 10px;border-radius:20px;font-size:13px;display:inline-block}
@@ -79,414 +69,667 @@ h1,h2,h3{font-family:"Playfair Display",serif}
 .udd.show{display:block}
 .ddi{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;transition:.15s;font-size:14px;font-weight:500;color:var(--tx)}
 .ddi:hover{background:#f0fdf4;color:var(--g)}.ddi.danger:hover{background:#fef2f2;color:#dc2626}
-.stitle{text-align:center;margin-bottom:48px}
-.stitle h2{font-size:34px;color:var(--g);margin-bottom:8px}
-.stitle p{color:var(--mu);font-size:16px}
+.stitle{text-align:center;margin-bottom:48px}.stitle h2{font-size:34px;color:var(--g);margin-bottom:8px}.stitle p{color:var(--mu);font-size:16px}
 .sdiv{width:60px;height:4px;border-radius:2px;background:linear-gradient(to right,var(--g),var(--g2));margin:14px auto 0}
 .stepcard{background:#fff;border-radius:20px;padding:26px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,.05);border:1px solid rgba(22,163,74,.1);transition:.3s}
-.stepcard:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(22,101,52,.12)}
-.stepn{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#166534,#16a34a);color:#fff;font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:"Playfair Display",serif}
+.stepcard:hover{transform:translateY(-4px)}.stepn{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#166534,#16a34a);color:#fff;font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
 .tcard{background:#fff;border-radius:20px;padding:22px;box-shadow:0 4px 15px rgba(0,0,0,.05);border:1px solid rgba(22,163,74,.1);transition:.3s}
-.tcard:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(22,101,52,.12)}
+.tcard:hover{transform:translateY(-4px)}
 .otab{padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;color:var(--mu);border:none;background:transparent;font-family:inherit}
 .otab.active{background:linear-gradient(135deg,#166534,#16a34a);color:#fff}
 .starin{display:flex;gap:8px;justify-content:center}
 .starin i{font-size:36px;cursor:pointer;transition:transform .15s,color .15s;color:#e5e7eb}
-.starin i.on,.starin i:hover{color:#f59e0b}
-.starin i:hover{transform:scale(1.25)}
+.starin i.on{color:#f59e0b}.starin i:hover{color:#f59e0b;transform:scale(1.25)}
 .sbar{height:4px;border-radius:2px;background:var(--bd);margin-top:8px;overflow:hidden}
 .sfill{height:100%;border-radius:2px;transition:.3s;width:0}
-.etxt{color:#dc2626;font-size:12px;margin-top:5px;display:none}
-.etxt.show{display:block}
+.etxt{color:#dc2626;font-size:12px;margin-top:5px;display:none}.etxt.show{display:block}
 .divtxt{display:flex;align-items:center;gap:12px;color:#9ca3af;font-size:13px;margin:14px 0}
 .divtxt::before,.divtxt::after{content:"";flex:1;height:1px;background:var(--bd)}
-.fau{animation:fau .5s ease forwards}
-@keyframes fau{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fau{animation:fau .5s ease forwards}@keyframes fau{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:768px){.dnav{display:none!important}.hbtn{display:flex!important}}
 .mmenu{display:none}.mmenu.open{display:block}
 </style>
 </head>
 <body>
-
 <script>
-const FB={apiKey:"AIzaSyD1xADf6KbttaSRl3bYuKEMUrQ4SJmTtH4",authDomain:"jamu-herbal-alami.firebaseapp.com",
+var FB={apiKey:"AIzaSyD1xADf6KbttaSRl3bYuKEMUrQ4SJmTtH4",authDomain:"jamu-herbal-alami.firebaseapp.com",
 databaseURL:"https://jamu-herbal-alami-default-rtdb.asia-southeast1.firebasedatabase.app",
 projectId:"jamu-herbal-alami",storageBucket:"jamu-herbal-alami.firebasestorage.app",
 messagingSenderId:"770031966685",appId:"1:770031966685:web:dc20683776e310c0b0fe34"};
-try{firebase.initializeApp(FB)}catch(e){}
-const db=firebase.database(),auth=firebase.auth();
-
-let OWA="6285187980564",EXP=600000,CU=null,ROLE=null,PO=null,SC=0,CD=false;
+try{firebase.initializeApp(FB);}catch(e){}
+var db=firebase.database(),auth=firebase.auth();
+var OWA="6285187980564",EXP=600000,CU=null,ROLE=null,PO=null,SC=0,CDok=false,RV=0;
+var RL=["","Sangat Buruk 😞","Kurang Baik 😐","Cukup 🙂","Bagus 😊","Sangat Bagus 🤩"];
+var FU=[],FI=0;
+var SMAP={
+  "menunggu-pembayaran":{l:"💰 Menunggu Pembayaran",c:"sm"},
+  "proses":{l:"⚙️ Sedang Diproses",c:"sp"},
+  "dikirim":{l:"📦 Dalam Pengiriman",c:"sd"},
+  "selesai":{l:"✅ Pesanan Selesai",c:"ss"},
+  "ditolak":{l:"❌ Ditolak",c:"st"},
+  "kadaluarsa":{l:"⏰ Kadaluarsa",c:"sk"}
+};
 
 // UTILITY
-function toast(m,t="success"){
-  const el=document.getElementById("toast");if(!el)return;
+function toast(m,t){
+  t=t||"success";
+  var el=document.getElementById("toast");if(!el)return;
+  var ic=t==="error"?"fa-times-circle":t==="info"?"fa-info-circle":"fa-check-circle";
   el.className="toast "+t;
-  el.innerHTML=\`<i class="fas \${t==="error"?"fa-times-circle":t==="info"?"fa-info-circle":"fa-check-circle"}"></i> \${m}\`;
-  el.style.display="flex";clearTimeout(el._t);el._t=setTimeout(()=>el.style.display="none",3500);
+  el.innerHTML='<i class="fas '+ic+'"></i> '+m;
+  el.style.display="flex";clearTimeout(el._t);
+  el._t=setTimeout(function(){el.style.display="none";},3500);
 }
-function rp(n){return"Rp "+Number(n).toLocaleString("id-ID")}
-function fwa(n){if(!n)return"";let c=n.replace(/\D/g,"");if(c.startsWith("0"))c="62"+c.substring(1);return c}
-function genID(){return"INV-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).substring(2,6).toUpperCase()}
+function rp(n){return"Rp "+Number(n).toLocaleString("id-ID");}
+function fwa(n){if(!n)return"";var c=n.replace(/\D/g,"");if(c.startsWith("0"))c="62"+c.substring(1);return c;}
+function genID(){return"INV-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).substring(2,6).toUpperCase();}
+function el(id){return document.getElementById(id);}
 
 // AUTH
-auth.onAuthStateChanged(async u=>{
-  CU=u;_nav(u);
-  ROLE=null;
-  if(u){try{const s=await db.ref("users/"+u.uid+"/role").once("value");ROLE=s.val()}catch{}}
-  _adminVis(ROLE==="admin");
+auth.onAuthStateChanged(function(u){
+  CU=u;updateNav(u);ROLE=null;
   if(u){
-    const dn=document.getElementById("dName"),de=document.getElementById("dEmail");
+    db.ref("users/"+u.uid+"/role").once("value").then(function(s){
+      ROLE=s.val();adminVis(ROLE==="admin");
+    }).catch(function(){adminVis(false);});
+  } else {adminVis(false);}
+  if(u){
+    var dn=el("dName"),de=el("dEmail");
     if(dn)dn.textContent=u.displayName||u.email.split("@")[0];
     if(de)de.textContent=u.email;
   }
 });
 
-function _nav(u){
-  const g=document.getElementById("navG"),n=document.getElementById("navU"),nm=document.getElementById("navName"),av=document.getElementById("navAv");
-  if(u){if(g)g.style.display="none";if(n)n.style.display="flex";const s=u.displayName||u.email.split("@")[0];if(nm)nm.textContent=s;if(av)av.textContent=s[0].toUpperCase();}
-  else{if(g)g.style.display="flex";if(n)n.style.display="none";}
+function updateNav(u){
+  var g=el("navG"),n=el("navU"),nm=el("navName"),av=el("navAv");
+  if(u){
+    if(g)g.style.display="none";if(n)n.style.display="flex";
+    var s=u.displayName||u.email.split("@")[0];
+    if(nm)nm.textContent=s;if(av)av.textContent=s[0].toUpperCase();
+  } else {
+    if(g)g.style.display="flex";if(n)n.style.display="none";
+  }
 }
-
-function _adminVis(a){
-  ["adLink","ftAdLink"].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display=a?"flex":"none"});
+function adminVis(a){
+  ["adLink","ftAdLink"].forEach(function(id){var e=el(id);if(e)e.style.display=a?"flex":"none";});
 }
 
 // AUTH MODAL
-function openAuth(tab="login"){document.getElementById("authM").classList.add("show");_switchTab(tab)}
+function openAuth(tab){
+  tab=tab||"login";
+  el("authM").classList.add("show");
+  switchTab(tab);
+}
 function closeAuth(){
-  document.getElementById("authM").classList.remove("show");
-  ["lF","rF","fF"].forEach(id=>{const el=document.getElementById(id);if(el)el.reset()});
-  const n=document.getElementById("lNotice");if(n)n.style.display="none";
-  PO=null;
-  _showP("pLogin");_switchTab("login");
-  document.querySelectorAll(".etxt").forEach(e=>e.classList.remove("show"));
+  el("authM").classList.remove("show");
+  ["lF","rF","fF"].forEach(function(id){var e=el(id);if(e)e.reset();});
+  var n=el("lNotice");if(n)n.style.display="none";
+  PO=null;showP("pLogin");switchTab("login");
+  document.querySelectorAll(".etxt").forEach(function(e){e.classList.remove("show");});
 }
-function _switchTab(tab){
-  document.querySelectorAll(".atab").forEach(t=>t.classList.remove("active"));
-  document.querySelector(\`[data-tab="\${tab}"]\`)?.classList.add("active");
-  ["pLogin","pDaftar","pForgot"].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display="none"});
-  if(tab==="login")_showP("pLogin");else if(tab==="daftar")_showP("pDaftar");
-  if(tab!=="login"){const n=document.getElementById("lNotice");if(n)n.style.display="none";}
+function switchTab(tab){
+  document.querySelectorAll(".atab").forEach(function(t){t.classList.remove("active");});
+  var at=document.querySelector('[data-tab="'+tab+'"]');if(at)at.classList.add("active");
+  ["pLogin","pDaftar","pForgot"].forEach(function(id){var e=el(id);if(e)e.style.display="none";});
+  if(tab==="login")showP("pLogin");
+  else if(tab==="daftar")showP("pDaftar");
+  if(tab!=="login"){var n=el("lNotice");if(n)n.style.display="none";}
 }
-function _showP(id){const el=document.getElementById(id);if(el)el.style.display="block"}
-function showForgot(){["pLogin","pDaftar","pForgot"].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display="none"});_showP("pForgot")}
-function backLogin(){["pLogin","pDaftar","pForgot"].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display="none"});_showP("pLogin")}
-function showE(id,msg){const el=document.getElementById(id);if(el){el.textContent=msg;el.classList.add("show")}}
+function showP(id){var e=el(id);if(e)e.style.display="block";}
+function showForgot(){["pLogin","pDaftar","pForgot"].forEach(function(id){var e=el(id);if(e)e.style.display="none";});showP("pForgot");}
+function backLogin(){["pLogin","pDaftar","pForgot"].forEach(function(id){var e=el(id);if(e)e.style.display="none";});showP("pLogin");}
+function showE(id,msg){var e=el(id);if(e){e.textContent=msg;e.classList.add("show");}}
 
-async function doLogin(e){
-  e.preventDefault();document.querySelectorAll(".etxt").forEach(x=>x.classList.remove("show"));
-  const em=document.getElementById("lEm").value.trim(),pw=document.getElementById("lPw").value,btn=document.getElementById("btnLogin");
-  if(!em||!pw){showE("lErr","Email dan password wajib!");return}
+function doLogin(e){
+  e.preventDefault();
+  document.querySelectorAll(".etxt").forEach(function(x){x.classList.remove("show");});
+  var em=el("lEm").value.trim(),pw=el("lPw").value,btn=el("btnLogin");
+  if(!em||!pw){showE("lErr","Email dan password wajib!");return;}
   btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Masuk...';
-  try{await auth.signInWithEmailAndPassword(em,pw);toast("✅ Selamat datang kembali!");closeAuth();_resume();}
-  catch(err){const m={"auth/user-not-found":"Email tidak terdaftar","auth/wrong-password":"Password salah","auth/invalid-credential":"Email atau password salah","auth/too-many-requests":"Terlalu banyak percobaan"};showE("lErr",m[err.code]||err.message);}
-  finally{btn.disabled=false;btn.innerHTML='<i class="fas fa-sign-in-alt"></i> Masuk';}
+  auth.signInWithEmailAndPassword(em,pw).then(function(){
+    toast("✅ Selamat datang kembali!");closeAuth();resume();
+  }).catch(function(err){
+    var m={"auth/user-not-found":"Email tidak terdaftar","auth/wrong-password":"Password salah","auth/invalid-credential":"Email atau password salah","auth/too-many-requests":"Terlalu banyak percobaan"};
+    showE("lErr",m[err.code]||err.message);
+  }).finally(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-sign-in-alt"></i> Masuk';});
 }
 
-async function doReg(e){
-  e.preventDefault();document.querySelectorAll(".etxt").forEach(x=>x.classList.remove("show"));
-  const nm=document.getElementById("rNm").value.trim(),em=document.getElementById("rEm").value.trim(),pw=document.getElementById("rPw").value,cf=document.getElementById("rCf").value,btn=document.getElementById("btnReg");
-  if(!nm){showE("rErr","Nama wajib!");return}if(!em){showE("rErr","Email wajib!");return}
-  if(pw.length<6){showE("rErr","Password min 6 karakter!");return}if(pw!==cf){showE("rErr","Password tidak cocok!");return}
+function doReg(e){
+  e.preventDefault();
+  document.querySelectorAll(".etxt").forEach(function(x){x.classList.remove("show");});
+  var nm=el("rNm").value.trim(),em=el("rEm").value.trim(),pw=el("rPw").value,cf=el("rCf").value,btn=el("btnReg");
+  if(!nm){showE("rErr","Nama wajib!");return;}
+  if(!em){showE("rErr","Email wajib!");return;}
+  if(pw.length<6){showE("rErr","Password min 6 karakter!");return;}
+  if(pw!==cf){showE("rErr","Password tidak cocok!");return;}
   btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Mendaftar...';
-  try{
-    const c=await auth.createUserWithEmailAndPassword(em,pw);
-    await c.user.updateProfile({displayName:nm});
-    await db.ref("users/"+c.user.uid).set({nama:nm,email:em,createdAt:Date.now(),role:"user"});
-    toast("🎉 Selamat datang, "+nm+"!");closeAuth();_resume();
-  }catch(err){const m={"auth/email-already-in-use":"Email sudah terdaftar","auth/invalid-email":"Format email tidak valid","auth/weak-password":"Password terlalu lemah"};showE("rErr",m[err.code]||err.message);}
-  finally{btn.disabled=false;btn.innerHTML='<i class="fas fa-user-plus"></i> Daftar Sekarang';}
+  auth.createUserWithEmailAndPassword(em,pw).then(function(c){
+    return c.user.updateProfile({displayName:nm}).then(function(){
+      return db.ref("users/"+c.user.uid).set({nama:nm,email:em,createdAt:Date.now(),role:"user"});
+    }).then(function(){
+      toast("🎉 Selamat datang, "+nm+"!");closeAuth();resume();
+    });
+  }).catch(function(err){
+    var m={"auth/email-already-in-use":"Email sudah terdaftar","auth/invalid-email":"Format email tidak valid","auth/weak-password":"Password terlalu lemah"};
+    showE("rErr",m[err.code]||err.message);
+  }).finally(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-user-plus"></i> Daftar Sekarang';});
 }
 
-async function doForgot(e){
-  e.preventDefault();document.querySelectorAll(".etxt").forEach(x=>x.classList.remove("show"));
-  const em=document.getElementById("fEm").value.trim(),btn=document.getElementById("btnFg");
-  if(!em){showE("fErr","Masukkan email!");return}
+function doForgot(e){
+  e.preventDefault();
+  document.querySelectorAll(".etxt").forEach(function(x){x.classList.remove("show");});
+  var em=el("fEm").value.trim(),btn=el("btnFg");
+  if(!em){showE("fErr","Masukkan email!");return;}
   btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Mengirim...';
-  try{
-    await auth.sendPasswordResetEmail(em);
-    document.getElementById("fOk").style.display="block";
-    toast("📧 Email reset dikirim!","info");
-  }catch(err){const m={"auth/user-not-found":"Email tidak terdaftar","auth/invalid-email":"Format email tidak valid"};showE("fErr",m[err.code]||err.message);}
-  finally{btn.disabled=false;btn.innerHTML='<i class="fas fa-paper-plane"></i> Kirim Link Reset';}
+  auth.sendPasswordResetEmail(em).then(function(){
+    el("fOk").style.display="block";toast("📧 Email reset dikirim!","info");
+  }).catch(function(err){
+    var m={"auth/user-not-found":"Email tidak terdaftar","auth/invalid-email":"Format email tidak valid"};
+    showE("fErr",m[err.code]||err.message);
+  }).finally(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-paper-plane"></i> Kirim Link Reset';});
 }
 
-async function loginGoogle(){
-  const p=new firebase.auth.GoogleAuthProvider();p.setCustomParameters({prompt:"select_account"});
-  document.querySelectorAll("[onclick=\"loginGoogle()\"]").forEach(b=>{b.disabled=true;b.innerHTML='<div class="spin" style="width:18px;height:18px;border-width:2px;margin:0 auto"></div>'});
-  try{
-    const r=await auth.signInWithPopup(p),u=r.user;
-    const s=await db.ref("users/"+u.uid).once("value");
-    if(!s.exists())await db.ref("users/"+u.uid).set({nama:u.displayName||"",email:u.email||"",foto:u.photoURL||"",createdAt:Date.now(),role:"user"});
-    else await db.ref("users/"+u.uid).update({foto:u.photoURL||"",lastLogin:Date.now()});
-    toast(r.additionalUserInfo?.isNewUser?"🎉 Akun Google dibuat!":"✅ Login Google berhasil!");closeAuth();_resume();
-  }catch(err){
-    const m={"auth/popup-closed-by-user":"Login dibatalkan","auth/popup-blocked":"Popup diblokir browser","auth/cancelled-popup-request":null};
-    const msg=m[err.code];if(msg!==null)toast("❌ "+(msg||err.message),"error");
-  }finally{
-    document.querySelectorAll("[onclick=\"loginGoogle()\"]").forEach(b=>{b.disabled=false;b.innerHTML='<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:20px"> Lanjutkan dengan Google';});
-  }
+function loginGoogle(){
+  var p=new firebase.auth.GoogleAuthProvider();p.setCustomParameters({prompt:"select_account"});
+  document.querySelectorAll('[onclick="loginGoogle()"]').forEach(function(b){
+    b.disabled=true;b.innerHTML='<div class="spin" style="width:18px;height:18px;border-width:2px;margin:0 auto"></div>';
+  });
+  auth.signInWithPopup(p).then(function(r){
+    var u=r.user;
+    return db.ref("users/"+u.uid).once("value").then(function(s){
+      if(!s.exists()){
+        return db.ref("users/"+u.uid).set({nama:u.displayName||"",email:u.email||"",foto:u.photoURL||"",createdAt:Date.now(),role:"user"});
+      } else {
+        return db.ref("users/"+u.uid).update({foto:u.photoURL||"",lastLogin:Date.now()});
+      }
+    }).then(function(){
+      toast(r.additionalUserInfo&&r.additionalUserInfo.isNewUser?"🎉 Akun Google dibuat!":"✅ Login Google berhasil!");
+      closeAuth();resume();
+    });
+  }).catch(function(err){
+    var m={"auth/popup-closed-by-user":"Login dibatalkan","auth/popup-blocked":"Popup diblokir browser","auth/cancelled-popup-request":null};
+    var msg=m[err.code];if(msg!==null&&msg!==undefined)toast("❌ "+(msg||err.message),"error");
+  }).finally(function(){
+    document.querySelectorAll('[onclick="loginGoogle()"]').forEach(function(b){
+      b.disabled=false;b.innerHTML='<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:20px"> Lanjutkan dengan Google';
+    });
+  });
 }
 
-function doLogout(){auth.signOut().then(()=>{closeDrop();toast("👋 Berhasil keluar","info")})}
+function doLogout(){auth.signOut().then(function(){closeDrop();toast("👋 Berhasil keluar","info");});}
 
 function chkStr(v){
-  let s=0;if(v.length>=6)s++;if(v.length>=10)s++;if(/[A-Z]/.test(v))s++;if(/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
-  const lv=[{c:"#ef4444",l:"Sangat Lemah",p:"20%"},{c:"#f97316",l:"Lemah",p:"40%"},{c:"#eab308",l:"Cukup",p:"60%"},{c:"#22c55e",l:"Kuat",p:"80%"},{c:"#166534",l:"Sangat Kuat",p:"100%"}][Math.min(s,4)];
-  const f=document.getElementById("sf");if(f){f.style.width=lv.p;f.style.background=lv.c}
-  const t=document.getElementById("stxt");if(t)t.textContent=v?lv.l:"";
+  var s=0;if(v.length>=6)s++;if(v.length>=10)s++;if(/[A-Z]/.test(v))s++;if(/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
+  var lv=[{c:"#ef4444",l:"Sangat Lemah",p:"20%"},{c:"#f97316",l:"Lemah",p:"40%"},{c:"#eab308",l:"Cukup",p:"60%"},{c:"#22c55e",l:"Kuat",p:"80%"},{c:"#166534",l:"Sangat Kuat",p:"100%"}][Math.min(s,4)];
+  var f=el("sf");if(f){f.style.width=lv.p;f.style.background=lv.c;}
+  var t=el("stxt");if(t)t.textContent=v?lv.l:"";
 }
 
-function togDrop(){document.getElementById("udd").classList.toggle("show")}
-function closeDrop(){document.getElementById("udd")?.classList.remove("show")}
-document.addEventListener("click",e=>{if(!e.target.closest("#navU"))closeDrop()});
+function togDrop(){el("udd").classList.toggle("show");}
+function closeDrop(){var d=el("udd");if(d)d.classList.remove("show");}
+document.addEventListener("click",function(e){if(!e.target.closest("#navU"))closeDrop();});
 
-async function goAdmin(){
-  if(!CU){openAuth("login");return}closeDrop();
-  if(ROLE==="admin"){window.location.href="admin.html";return}
-  try{const s=await db.ref("users/"+CU.uid+"/role").once("value");if(s.val()==="admin")window.location.href="admin.html";else toast("⛔ Bukan admin!","error");}
-  catch{toast("❌ Gagal verifikasi","error");}
+function goAdmin(){
+  if(!CU){openAuth("login");return;}closeDrop();
+  if(ROLE==="admin"){window.location.href="admin.html";return;}
+  db.ref("users/"+CU.uid+"/role").once("value").then(function(s){
+    if(s.val()==="admin")window.location.href="admin.html";
+    else toast("⛔ Bukan admin!","error");
+  }).catch(function(){toast("❌ Gagal verifikasi","error");});
 }
 
 // FOTO SLIDER
 function genFoto(foto){
-  const ph='<div style="background:#f0fdf4;height:208px;display:flex;align-items:center;justify-content:center;color:#bbf7d0"><i class="fas fa-leaf" style="font-size:60px"></i></div>';
+  var ph='<div style="background:#f0fdf4;height:208px;display:flex;align-items:center;justify-content:center;color:#bbf7d0"><i class="fas fa-leaf" style="font-size:60px"></i></div>';
   if(!foto)return ph;
-  let urls=Array.isArray(foto)?foto:(String(foto).includes(",")?(String(foto).split(",").map(u=>u.trim())):[String(foto)]);
+  var urls=Array.isArray(foto)?foto:(String(foto).indexOf(",")>=0?String(foto).split(",").map(function(u){return u.trim();}): [String(foto)]);
   urls=urls.filter(Boolean);if(!urls.length)return ph;
-  if(urls.length===1)return \`<img src="\${urls[0]}" style="width:100%;height:208px;object-fit:cover;cursor:pointer;display:block" onclick="openFoto([\'\${urls[0]}\'],0)" onerror="this.src='https://placehold.co/400x208/dcfce7/166534?text=Foto'">\`;
-  const sid="s"+(++SC),enc=encodeURIComponent(JSON.stringify(urls));
-  const slides=urls.map((u,i)=>\`<div class="sl-slide" data-u="\${enc}" data-i="\${i}" onclick="slideClick(this)"><img src="\${u}" onerror="this.src='https://placehold.co/400x208/dcfce7/166534?text=Foto+\${i+1}'"></div>\`).join("");
-  const dots=urls.map((_,i)=>\`<button class="sl-dot\${i===0?" active":""}" onclick="gSlide(\'\${sid}\',\${i})"></button>\`).join("");
-  return \`<div class="sl-wrap" id="\${sid}" data-cur="0" data-tot="\${urls.length}"><div class="sl-track">\${slides}</div><button class="sl-btn sl-prev" onclick="pSlide(event,\'\${sid}\')"><i class="fas fa-chevron-left"></i></button><button class="sl-btn sl-next" onclick="nSlide(event,\'\${sid}\')"><i class="fas fa-chevron-right"></i></button><div class="sl-dots">\${dots}</div><span class="sl-ctr">1/\${urls.length}</span></div>\`;
+  if(urls.length===1){
+    return '<img src="'+urls[0]+'" style="width:100%;height:208px;object-fit:cover;cursor:pointer;display:block" onclick="openFoto([\''+urls[0]+'\'],0)" onerror="this.src=\'https://placehold.co/400x208/dcfce7/166534?text=Foto\'">';
+  }
+  var sid="s"+(++SC);
+  var enc=encodeURIComponent(JSON.stringify(urls));
+  var slides="";
+  for(var i=0;i<urls.length;i++){
+    slides+='<div class="sl-slide" data-u="'+enc+'" data-i="'+i+'" onclick="slideClick(this)">';
+    slides+='<img src="'+urls[i]+'" onerror="this.src=\'https://placehold.co/400x208/dcfce7/166534?text=Foto\'">';
+    slides+='</div>';
+  }
+  var dots="";
+  for(var j=0;j<urls.length;j++){
+    dots+='<button class="sl-dot'+(j===0?" active":"")+'" onclick="gSlide(\''+sid+'\','+j+')"></button>';
+  }
+  return '<div class="sl-wrap" id="'+sid+'" data-cur="0" data-tot="'+urls.length+'">'+
+    '<div class="sl-track">'+slides+'</div>'+
+    '<button class="sl-btn sl-prev" onclick="pSlide(event,\''+sid+'\')"><i class="fas fa-chevron-left"></i></button>'+
+    '<button class="sl-btn sl-next" onclick="nSlide(event,\''+sid+'\')"><i class="fas fa-chevron-right"></i></button>'+
+    '<div class="sl-dots">'+dots+'</div>'+
+    '<span class="sl-ctr">1/'+urls.length+'</span>'+
+    '</div>';
 }
-function gSlide(sid,idx){const w=document.getElementById(sid);if(!w)return;const tot=Number(w.dataset.tot);idx=((idx%tot)+tot)%tot;w.dataset.cur=idx;w.querySelector(".sl-track").style.transform=\`translateX(-\${idx*100}%)\`;w.querySelectorAll(".sl-dot").forEach((d,i)=>d.classList.toggle("active",i===idx));const c=w.querySelector(".sl-ctr");if(c)c.textContent=(idx+1)+"/"+tot;}
-function pSlide(e,sid){e.stopPropagation();const w=document.getElementById(sid);if(w)gSlide(sid,Number(w.dataset.cur)-1)}
-function nSlide(e,sid){e.stopPropagation();const w=document.getElementById(sid);if(w)gSlide(sid,Number(w.dataset.cur)+1)}
-function slideClick(el){try{openFoto(JSON.parse(decodeURIComponent(el.dataset.u)),parseInt(el.dataset.i)||0)}catch{}}
-function setupSwipe(){document.querySelectorAll(".sl-wrap:not([data-sw])").forEach(w=>{w.dataset.sw="1";let sx=0;w.addEventListener("touchstart",e=>{sx=e.touches[0].clientX},{passive:true});w.addEventListener("touchend",e=>{const d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>40)d>0?nSlide({stopPropagation:()=>{}},w.id):pSlide({stopPropagation:()=>{}},w.id)},{passive:true})})}
+
+function gSlide(sid,idx){
+  var w=el(sid);if(!w)return;
+  var tot=Number(w.dataset.tot);
+  idx=((idx%tot)+tot)%tot;
+  w.dataset.cur=idx;
+  w.querySelector(".sl-track").style.transform="translateX(-"+idx*100+"%)";
+  w.querySelectorAll(".sl-dot").forEach(function(d,i){d.classList.toggle("active",i===idx);});
+  var c=w.querySelector(".sl-ctr");if(c)c.textContent=(idx+1)+"/"+tot;
+}
+function pSlide(e,sid){e.stopPropagation();var w=el(sid);if(w)gSlide(sid,Number(w.dataset.cur)-1);}
+function nSlide(e,sid){e.stopPropagation();var w=el(sid);if(w)gSlide(sid,Number(w.dataset.cur)+1);}
+function slideClick(e){try{openFoto(JSON.parse(decodeURIComponent(e.dataset.u)),parseInt(e.dataset.i)||0);}catch(err){}}
+function setupSwipe(){
+  document.querySelectorAll(".sl-wrap:not([data-sw])").forEach(function(w){
+    w.dataset.sw="1";var sx=0;
+    w.addEventListener("touchstart",function(e){sx=e.touches[0].clientX;},{passive:true});
+    w.addEventListener("touchend",function(e){
+      var d=sx-e.changedTouches[0].clientX;
+      if(Math.abs(d)>40){if(d>0)nSlide({stopPropagation:function(){}},w.id);else pSlide({stopPropagation:function(){}},w.id);}
+    },{passive:true});
+  });
+}
 
 // FOTO MODAL
-let FU=[],FI=0;
-function openFoto(urls,idx){FU=Array.isArray(urls)?urls:[urls];FI=idx||0;_rfm();document.getElementById("fM").classList.add("show");document.body.style.overflow="hidden";}
-function _rfm(){
-  const img=document.getElementById("fImg"),ctr=document.getElementById("fCtr"),pv=document.getElementById("fPv"),nx=document.getElementById("fNx");
-  if(img)img.src=FU[FI];if(ctr)ctr.textContent=FU.length>1?(FI+1)+" / "+FU.length:"";
-  if(pv)pv.style.display=FU.length>1?"flex":"none";if(nx)nx.style.display=FU.length>1?"flex":"none";
+function openFoto(urls,idx){
+  FU=Array.isArray(urls)?urls:[urls];FI=idx||0;
+  renderFoto();el("fM").classList.add("show");document.body.style.overflow="hidden";
 }
-function fPrev(){FI=((FI-1)+FU.length)%FU.length;_rfm()}
-function fNext(){FI=(FI+1)%FU.length;_rfm()}
-function closeFoto(){document.getElementById("fM").classList.remove("show");document.body.style.overflow="";}
-
-document.addEventListener("DOMContentLoaded",()=>{
-  const fm=document.getElementById("fM");
-  if(fm){let sx=0;fm.addEventListener("touchstart",e=>{sx=e.touches[0].clientX},{passive:true});fm.addEventListener("touchend",e=>{const d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>50){if(d>0)fNext();else fPrev();}},{passive:true});}
-  // Stars
-  document.querySelectorAll("#starIn i").forEach(star=>{
-    const v=parseInt(star.dataset.v);
-    star.addEventListener("click",()=>setStars(v));
-    star.addEventListener("mouseenter",()=>document.querySelectorAll("#starIn i").forEach((s,i)=>s.classList.toggle("on",i<v)));
-    star.addEventListener("mouseleave",()=>setStars(RV));
-  });
-  const si=document.getElementById("starIn");
-  if(si){si.addEventListener("touchmove",e=>{e.preventDefault();const t=e.touches[0];si.querySelectorAll("i").forEach((s,i)=>{const r=s.getBoundingClientRect();if(t.clientX>=r.left&&t.clientX<=r.right){RV=i+1;setStars(i+1);}});},{passive:false});}
-  const hb=document.getElementById("hbtn"),mm=document.getElementById("mmenu");if(hb&&mm)hb.addEventListener("click",()=>mm.classList.toggle("open"));
-});
-
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){closeFoto();document.querySelectorAll(".modal.show").forEach(m=>m.classList.remove("show"));}
-  const fm=document.getElementById("fM");
-  if(fm?.classList.contains("show")){if(e.key==="ArrowLeft")fPrev();if(e.key==="ArrowRight")fNext();}
-});
+function renderFoto(){
+  var img=el("fImg"),ctr=el("fCtr"),pv=el("fPv"),nx=el("fNx");
+  if(img)img.src=FU[FI];
+  if(ctr)ctr.textContent=FU.length>1?(FI+1)+" / "+FU.length:"";
+  if(pv)pv.style.display=FU.length>1?"flex":"none";
+  if(nx)nx.style.display=FU.length>1?"flex":"none";
+}
+function fPrev(){FI=((FI-1)+FU.length)%FU.length;renderFoto();}
+function fNext(){FI=(FI+1)%FU.length;renderFoto();}
+function closeFoto(){el("fM").classList.remove("show");document.body.style.overflow="";}
 
 // PRODUK
 function loadProduk(){
-  const c=document.getElementById("produkList");if(!c)return;SC=0;
+  var c=el("produkList");if(!c)return;SC=0;
   c.innerHTML='<div class="col-span-3 text-center py-16"><div class="spin mx-auto mb-4"></div><p class="text-gray-500">Memuat produk...</p></div>';
-  db.ref("produk").once("value").then(snap=>{
-    const data=snap.val();
-    if(!data){c.innerHTML='<div class="col-span-3 text-center py-16 text-gray-400"><i class="fas fa-seedling text-5xl mb-4 opacity-30 block"></i><p>Belum ada produk</p></div>';return;}
-    let html="",tot=0;
-    Object.entries(data).forEach(([key,p])=>{
+  db.ref("produk").once("value").then(function(snap){
+    var data=snap.val();
+    if(!data){
+      c.innerHTML='<div class="col-span-3 text-center py-16 text-gray-400"><i class="fas fa-seedling text-5xl mb-4 opacity-30 block"></i><p>Belum ada produk</p></div>';
+      return;
+    }
+    var html="",tot=0;
+    Object.keys(data).forEach(function(key){
+      var p=data[key];
       if(!p||typeof p!=="object")return;
       tot+=Number(p.terjual)||0;
-      const harga=p.harga&&!isNaN(p.harga)?Number(p.harga):null;
-      const stars=Array(5).fill(0).map((_,i)=>\`<i class="fa-\${i<(Number(p.rating)||4)?"solid":"regular"} fa-star text-amber-400 text-sm"></i>\`).join("");
-      const haStok=p.stok!==undefined&&p.stok!==null,stok=Number(p.stok),habis=haStok&&stok<=0;
-      let sb="";
-      if(haStok){if(stok<=0)sb='<div style="position:absolute;top:8px;left:8px;background:#dc2626;color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px">Habis</div>';else if(stok<=5)sb=\`<div style="position:absolute;top:8px;left:8px;background:#d97706;color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px">Sisa \${stok}</div>\`;}
-      const nm=(p.nama||"Produk").replace(/'/g,"\\'");
-      const tbtn=habis?'<button disabled style="width:100%;background:#e5e7eb;color:#9ca3af;padding:12px;border-radius:12px;font-weight:700;cursor:not-allowed;border:none;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px"><i class="fas fa-times-circle"></i> Stok Habis</button>':harga?\`<button onclick="openOrder(\'\${key}\',\'\${nm}\',\${harga})" class="btn-g wf jc"><i class="fas fa-shopping-cart"></i>Beli Sekarang</button>\`:\`<button onclick="chatWA(\'\${nm}\',null)" class="btn-w wf jc"><i class="fab fa-whatsapp"></i>Chat WA</button>\`;
-      html+=\`<div class="pcard fau"><div style="position:relative">\${genFoto(p.foto)}\${p.terjual>0?\`<div style="position:absolute;top:10px;right:10px;background:rgba(22,101,52,.9);color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px"><i class="fas fa-fire-flame-curved mr-1"></i>\${p.terjual} terjual</div>':"" }\${sb}</div><div class="p-5"><h3 class="font-bold text-lg text-gray-800 mb-2">\${p.nama||"Produk"}</h3><p class="text-gray-500 text-sm mb-3 leading-relaxed" style="white-space:pre-line;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">\${p.deskripsi||""}</p><div class="flex items-center mb-3">\${stars}<span class="text-xs text-gray-400 ml-2">(\${p.ulasanCount||0})</span></div><div class="flex items-center justify-between mb-4"><span class="text-2xl font-bold text-green-700">\${harga?rp(harga):"Hubungi WA"}</span>\${haStok&&stok>5?\`<span class="text-xs text-gray-400">Stok: \${stok}</span>\`:""}</div>\${tbtn}</div></div>\`;
+      var harga=(p.harga&&!isNaN(p.harga))?Number(p.harga):null;
+      var rating=Number(p.rating)||4;
+      var stars="";
+      for(var i=0;i<5;i++){stars+='<i class="fa-'+(i<rating?"solid":"regular")+' fa-star text-amber-400 text-sm"></i>';}
+      var haStok=(p.stok!==undefined&&p.stok!==null);
+      var stok=Number(p.stok);
+      var habis=haStok&&stok<=0;
+      var sb="";
+      if(haStok){
+        if(stok<=0)sb='<div style="position:absolute;top:8px;left:8px;background:#dc2626;color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px">Habis</div>';
+        else if(stok<=5)sb='<div style="position:absolute;top:8px;left:8px;background:#d97706;color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px">Sisa '+stok+'</div>';
+      }
+      var nm=(p.nama||"Produk").replace(/'/g,"\\'");
+      var terjualBadge="";
+      if(p.terjual>0)terjualBadge='<div style="position:absolute;top:10px;right:10px;background:rgba(22,101,52,.9);color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px"><i class="fas fa-fire-flame-curved mr-1"></i>'+p.terjual+' terjual</div>';
+      var tbtn="";
+      if(habis){
+        tbtn='<button disabled style="width:100%;background:#e5e7eb;color:#9ca3af;padding:12px;border-radius:12px;font-weight:700;cursor:not-allowed;border:none;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px"><i class="fas fa-times-circle"></i> Stok Habis</button>';
+      } else if(harga){
+        tbtn='<button onclick="openOrder(\''+key+'\',\''+nm+'\','+harga+')" class="btn-g wf jc"><i class="fas fa-shopping-cart"></i>Beli Sekarang</button>';
+      } else {
+        tbtn='<button onclick="chatWA(\''+nm+'\',null)" class="btn-w wf jc"><i class="fab fa-whatsapp"></i>Chat WA</button>';
+      }
+      var stokInfo="";
+      if(haStok&&stok>5)stokInfo='<span class="text-xs text-gray-400">Stok: '+stok+'</span>';
+      var deskripsi=p.deskripsi||"";
+      var nama=p.nama||"Produk";
+      html+='<div class="pcard fau">';
+      html+='<div style="position:relative">'+genFoto(p.foto)+terjualBadge+sb+'</div>';
+      html+='<div class="p-5">';
+      html+='<h3 class="font-bold text-lg text-gray-800 mb-2">'+nama+'</h3>';
+      html+='<p class="text-gray-500 text-sm mb-3 leading-relaxed" style="white-space:pre-line;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">'+deskripsi+'</p>';
+      html+='<div class="flex items-center mb-3">'+stars+'<span class="text-xs text-gray-400 ml-2">('+( p.ulasanCount||0)+')</span></div>';
+      html+='<div class="flex items-center justify-between mb-4">';
+      html+='<span class="text-2xl font-bold text-green-700">'+(harga?rp(harga):"Hubungi WA")+'</span>'+stokInfo;
+      html+='</div>'+tbtn+'</div></div>';
     });
     c.innerHTML=html;
-    const tb=document.getElementById("totTj");if(tb)tb.textContent=tot+" Terjual";
+    var tb=el("totTj");if(tb)tb.textContent=tot+" Terjual";
     setTimeout(setupSwipe,120);
-  }).catch(()=>{c.innerHTML='<div class="col-span-3 text-center py-16 text-gray-400"><p>Gagal memuat. <button onclick="loadProduk()" class="text-green-600 underline">Coba lagi</button></p></div>';});
+  }).catch(function(){
+    c.innerHTML='<div class="col-span-3 text-center py-16 text-gray-400"><p>Gagal memuat. <button onclick="loadProduk()" class="text-green-600 underline">Coba lagi</button></p></div>';
+  });
 }
 
 // TESTIMONI
 function loadTesti(){
-  const c=document.getElementById("testiList");if(!c)return;
-  db.ref("testimoni").orderByChild("waktu").limitToLast(6).once("value").then(snap=>{
-    const data=snap.val();
+  var c=el("testiList");if(!c)return;
+  db.ref("testimoni").orderByChild("waktu").limitToLast(6).once("value").then(function(snap){
+    var data=snap.val();
     if(!data){c.innerHTML='<div class="col-span-3 text-center py-12 text-gray-400"><p>Belum ada testimoni</p></div>';return;}
-    c.innerHTML=Object.values(data).reverse().slice(0,6).map(t=>\`<div class="tcard"><div class="flex items-center mb-3"><img src="\${t.foto||"https://ui-avatars.com/api/?name="+encodeURIComponent(t.nama||"U")+"&background=dcfce7&color=166534&bold=true"}" class="w-12 h-12 rounded-full object-cover mr-3 border-2 border-green-100"><div><p class="font-semibold text-gray-800">\${t.nama||"Pembeli"}</p><div>\${Array(5).fill(0).map((_,i)=>\`<i class="fa-\${i<(t.rating||5)?"solid":"regular"} fa-star text-amber-400 text-xs"></i>\`).join("")}</div></div></div><p class="text-gray-600 text-sm leading-relaxed mb-3">"\${t.ulasan||""}"</p><p class="text-xs text-gray-400"><i class="fas fa-tag mr-1 text-green-500"></i>\${t.produk||"Jamu Herbal"}</p></div>\`).join("");
+    var list=Object.values(data).reverse().slice(0,6);
+    var html="";
+    list.forEach(function(t){
+      var foto=t.foto||"https://ui-avatars.com/api/?name="+encodeURIComponent(t.nama||"U")+"&background=dcfce7&color=166534&bold=true";
+      var stars="";
+      for(var i=0;i<5;i++){stars+='<i class="fa-'+(i<(t.rating||5)?"solid":"regular")+' fa-star text-amber-400 text-xs"></i>';}
+      html+='<div class="tcard">';
+      html+='<div class="flex items-center mb-3">';
+      html+='<img src="'+foto+'" class="w-12 h-12 rounded-full object-cover mr-3 border-2 border-green-100">';
+      html+='<div><p class="font-semibold text-gray-800">'+(t.nama||"Pembeli")+'</p><div>'+stars+'</div></div>';
+      html+='</div>';
+      html+='<p class="text-gray-600 text-sm leading-relaxed mb-3">"'+(t.ulasan||"")+'"</p>';
+      html+='<p class="text-xs text-gray-400"><i class="fas fa-tag mr-1 text-green-500"></i>'+(t.produk||"Jamu Herbal")+'</p>';
+      html+='</div>';
+    });
+    c.innerHTML=html;
   });
 }
 
 // ORDER
-function chatWA(nm,h){const p=h?\`Halo kak, mau order *\${nm}* Rp \${Number(h).toLocaleString()}. Bisa? 🌿\`:\`Halo kak, tanya produk *\${nm}*. Mohon info harga & cara order 🌿\`;window.open(\`https://wa.me/\${OWA}?text=\${encodeURIComponent(p)}\`,"_blank");}
+function chatWA(nm,h){
+  var p=h?"Halo kak, mau order *"+nm+"* Rp "+Number(h).toLocaleString()+". Bisa? 🌿":"Halo kak, tanya produk *"+nm+"*. Mohon info harga & cara order 🌿";
+  window.open("https://wa.me/"+OWA+"?text="+encodeURIComponent(p),"_blank");
+}
 
 function openOrder(pid,pnm,ph){
-  if(!CU){PO={pid,pnm,ph};openAuth("login");setTimeout(()=>{const n=document.getElementById("lNotice");if(n){n.style.display="flex";n.innerHTML=\`<i class="fas fa-lock mr-2"></i>Login dulu untuk membeli <strong>\${pnm}</strong>\`;}},80);return;}
-  _openOrd(pid,pnm,ph);
+  if(!CU){
+    PO={pid:pid,pnm:pnm,ph:ph};
+    openAuth("login");
+    setTimeout(function(){
+      var n=el("lNotice");
+      if(n){n.style.display="flex";n.innerHTML='<i class="fas fa-lock mr-2"></i>Login dulu untuk membeli <strong>'+pnm+'</strong>';}
+    },80);
+    return;
+  }
+  openOrd(pid,pnm,ph);
 }
-function _openOrd(pid,pnm,ph){
-  document.getElementById("oPid").value=pid;document.getElementById("oPh").value=ph;document.getElementById("oPnm").value=pnm;
-  document.getElementById("oPinfo").innerHTML=\`<div class="flex items-center gap-3"><div style="width:40px;height:40px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;color:#166534"><i class="fas fa-leaf"></i></div><div><p class="font-bold text-gray-800">\${pnm}</p><p class="text-green-600 font-semibold">\${rp(ph)}</p></div></div>\`;
-  document.getElementById("oNm").value=CU.displayName||"";
-  db.ref("users/"+CU.uid+"/wa").once("value").then(s=>{if(s.val())document.getElementById("oWa").value=s.val();});
-  document.getElementById("oQty").value=1;calcTot();document.getElementById("ordM").classList.add("show");
+function openOrd(pid,pnm,ph){
+  el("oPid").value=pid;el("oPh").value=ph;el("oPnm").value=pnm;
+  el("oPinfo").innerHTML='<div class="flex items-center gap-3"><div style="width:40px;height:40px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;color:#166534"><i class="fas fa-leaf"></i></div><div><p class="font-bold text-gray-800">'+pnm+'</p><p class="text-green-600 font-semibold">'+rp(ph)+'</p></div></div>';
+  el("oNm").value=CU.displayName||"";
+  db.ref("users/"+CU.uid+"/wa").once("value").then(function(s){if(s.val())el("oWa").value=s.val();});
+  el("oQty").value=1;calcTot();el("ordM").classList.add("show");
 }
-function _resume(){if(PO){const{pid,pnm,ph}=PO;PO=null;setTimeout(()=>_openOrd(pid,pnm,ph),400);}}
-function closeOrder(){document.getElementById("ordM").classList.remove("show");document.getElementById("ordF").reset();}
-function calcTot(){const h=Number(document.getElementById("oPh").value)||0,q=Number(document.getElementById("oQty").value)||1;document.getElementById("oTot").textContent=rp(h*q);}
+function resume(){if(PO){var o=PO;PO=null;setTimeout(function(){openOrd(o.pid,o.pnm,o.ph);},400);}}
+function closeOrder(){el("ordM").classList.remove("show");el("ordF").reset();}
+function calcTot(){var h=Number(el("oPh").value)||0,q=Number(el("oQty").value)||1;el("oTot").textContent=rp(h*q);}
 
-async function submitOrder(e){
+function submitOrder(e){
   e.preventDefault();
-  const nm=document.getElementById("oNm").value.trim(),wa=document.getElementById("oWa").value.trim(),al=document.getElementById("oAl").value.trim(),qty=Number(document.getElementById("oQty").value),pid=document.getElementById("oPid").value,ph=Number(document.getElementById("oPh").value),pnm=document.getElementById("oPnm").value;
+  var nm=el("oNm").value.trim(),wa=el("oWa").value.trim(),al=el("oAl").value.trim();
+  var qty=Number(el("oQty").value),pid=el("oPid").value,ph=Number(el("oPh").value),pnm=el("oPnm").value;
   if(!nm||!wa||!al||!qty){toast("Semua field wajib diisi!","error");return;}
-  const btn=document.getElementById("btnOrd");btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Memproses...';
-  // Cek stok
-  try{
-    const ps=await db.ref("produk/"+pid).once("value"),pv=ps.val();
+  var btn=el("btnOrd");btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Memproses...';
+  db.ref("produk/"+pid).once("value").then(function(ps){
+    var pv=ps.val();
     if(pv&&pv.stok!==undefined&&pv.stok!==null){
-      if(Number(pv.stok)<qty){toast("❌ Stok tidak cukup! Sisa "+pv.stok+" pcs","error");btn.disabled=false;btn.innerHTML='<i class="fas fa-check-circle"></i> Konfirmasi Order';return;}
-      await db.ref("produk/"+pid+"/stok").transaction(c=>Math.max(0,(c||0)-qty));
+      if(Number(pv.stok)<qty){
+        toast("❌ Stok tidak cukup! Sisa "+pv.stok+" pcs","error");
+        btn.disabled=false;btn.innerHTML='<i class="fas fa-check-circle"></i> Konfirmasi Order';
+        return Promise.reject("stok");
+      }
+      return db.ref("produk/"+pid+"/stok").transaction(function(c){return Math.max(0,(c||0)-qty);});
     }
-  }catch{}
-  const kode=genID(),total=ph*qty;
-  const oData={kode,nama:nm,wa:fwa(wa),alamat:al,produkId:pid,produkNama:pnm,produkHarga:ph,jumlah:qty,total,status:"menunggu-pembayaran",waktu:Date.now(),userId:CU?CU.uid:null,riwayatStatus:[{status:"menunggu-pembayaran",waktu:Date.now(),catatan:"Pesanan dibuat"}]};
-  try{
+  }).then(function(result){
+    if(result==="stok")return;
+    var kode=genID(),total=ph*qty;
+    var oData={kode:kode,nama:nm,wa:fwa(wa),alamat:al,produkId:pid,produkNama:pnm,produkHarga:ph,
+      jumlah:qty,total:total,status:"menunggu-pembayaran",waktu:Date.now(),
+      userId:CU?CU.uid:null,
+      riwayatStatus:[{status:"menunggu-pembayaran",waktu:Date.now(),catatan:"Pesanan dibuat"}]};
     if(CU)db.ref("users/"+CU.uid+"/wa").set(fwa(wa));
-    await db.ref("pesanan").push(oData);
-    const rs=await db.ref("pengaturan/rekening").once("value"),rek=rs.val()||{bank:"BCA",nomor:"1234567890",nama:"Jamu Herbal Alami"};
-    closeOrder();_showSucc(kode,total,rek,pnm);
-  }catch(err){
-    try{db.ref("produk/"+pid+"/stok").transaction(c=>(c||0)+qty)}catch{}
+    return db.ref("pesanan").push(oData).then(function(){
+      return db.ref("pengaturan/rekening").once("value").then(function(rs){
+        var rek=rs.val()||{bank:"BCA",nomor:"1234567890",nama:"Jamu Herbal Alami"};
+        closeOrder();showSucc(kode,total,rek,pnm);
+      });
+    });
+  }).catch(function(err){
+    if(err==="stok")return;
+    db.ref("produk/"+pid+"/stok").transaction(function(c){return(c||0)+qty;});
     toast("❌ Gagal: "+err.message,"error");
-  }finally{btn.disabled=false;btn.innerHTML='<i class="fas fa-check-circle"></i> Konfirmasi Order';}
+  }).finally(function(){btn.disabled=false;btn.innerHTML='<i class="fas fa-check-circle"></i> Konfirmasi Order';});
 }
 
-function _showSucc(kode,tot,rek,pnm){
-  document.getElementById("sKode").textContent=kode;
-  document.getElementById("sTot").textContent=rp(tot);
-  document.getElementById("sRek").innerHTML=\`<div class="rek"><p style="color:rgba(255,255,255,.8);font-size:13px;margin-bottom:4px">Transfer ke rekening</p><p style="font-size:22px;font-weight:800;font-family:monospace">\${rek.bank} • \${rek.nomor}</p><p style="font-size:13px;margin-top:4px">a.n. \${rek.nama}</p><p style="font-size:22px;font-weight:800;margin-top:12px">\${rp(tot)}</p></div>\`;
-  const pw=\`📋 *PESANAN BARU*\n\nHalo kak, saya sudah order:\n• Produk: \${pnm}\n• ID: \${kode}\n• Total: \${rp(tot)}\n\nBisa transfer ke \${rek.bank} \${rek.nomor}?\n\nTerima kasih 🌿\`;
-  document.getElementById("btnSWA").onclick=()=>window.open(\`https://wa.me/\${OWA}?text=\${encodeURIComponent(pw)}\`,"_blank");
-  document.getElementById("succM").classList.add("show");
+function showSucc(kode,tot,rek,pnm){
+  el("sKode").textContent=kode;el("sTot").textContent=rp(tot);
+  el("sRek").innerHTML='<div class="rek"><p style="color:rgba(255,255,255,.8);font-size:13px;margin-bottom:4px">Transfer ke rekening</p><p style="font-size:22px;font-weight:800;font-family:monospace">'+rek.bank+' &bull; '+rek.nomor+'</p><p style="font-size:13px;margin-top:4px">a.n. '+rek.nama+'</p><p style="font-size:22px;font-weight:800;margin-top:12px">'+rp(tot)+'</p></div>';
+  var pw="📋 *PESANAN BARU*\n\nHalo kak, saya sudah order:\n• Produk: "+pnm+"\n• ID: "+kode+"\n• Total: "+rp(tot)+"\n\nBisa transfer ke "+rek.bank+" "+rek.nomor+"?\n\nTerima kasih 🌿";
+  el("btnSWA").onclick=function(){window.open("https://wa.me/"+OWA+"?text="+encodeURIComponent(pw),"_blank");};
+  el("succM").classList.add("show");
 }
-function copyKode(id){const el=document.getElementById(id);navigator.clipboard?.writeText(el.textContent).then(()=>toast("✅ ID disalin!"));}
+function copyKode(id){var e=el(id);if(e&&navigator.clipboard)navigator.clipboard.writeText(e.textContent).then(function(){toast("✅ ID disalin!");});}
 
 // SENSOR
-function sensTxt(s,a=3,b=2){if(!s)return"***";s=String(s);if(s.length<=a+b)return s[0]+"•".repeat(s.length-1);return s.substring(0,a)+"•".repeat(Math.min(s.length-a-b,6))+s.substring(s.length-b);}
-function sensWA(w){if(!w)return"***";const s=String(w).replace(/\D/g,"");if(s.length<8)return s[0]+"•".repeat(s.length-1);return s.substring(0,4)+"••••"+s.substring(s.length-4);}
-function sensAl(a){if(!a)return"***";const s=String(a).trim(),pts=s.split(",").map(p=>p.trim()).filter(Boolean);if(pts.length>=2)return"••••••••, "+pts[pts.length-1];return s.substring(0,8)+"••••••••";}
+function sensTxt(s,a,b){a=a||3;b=b||2;if(!s)return"***";s=String(s);if(s.length<=a+b)return s[0]+"•".repeat(s.length-1);return s.substring(0,a)+"•".repeat(Math.min(s.length-a-b,6))+s.substring(s.length-b);}
+function sensWA(w){if(!w)return"***";var s=String(w).replace(/\D/g,"");if(s.length<8)return s[0]+"•".repeat(s.length-1);return s.substring(0,4)+"••••"+s.substring(s.length-4);}
+function sensAl(a){if(!a)return"***";var s=String(a).trim(),pts=s.split(",").map(function(p){return p.trim();}).filter(Boolean);if(pts.length>=2)return"••••••••, "+pts[pts.length-1];return s.substring(0,8)+"••••••••";}
 
 // CEK PESANAN
-const SMAP={"menunggu-pembayaran":{l:"💰 Menunggu Pembayaran",c:"sm"},"proses":{l:"⚙️ Sedang Diproses",c:"sp"},"dikirim":{l:"📦 Dalam Pengiriman",c:"sd"},"selesai":{l:"✅ Pesanan Selesai",c:"ss"},"ditolak":{l:"❌ Ditolak",c:"st"},"kadaluarsa":{l:"⏰ Kadaluarsa",c:"sk"}};
-
 function cekPesanan(){
-  const id=document.getElementById("cekId").value.trim();if(!id){toast("Masukkan ID pesanan!","error");return;}
-  const r=document.getElementById("cekRes");r.innerHTML='<div class="text-center py-8"><div class="spin mx-auto"></div></div>';r.style.display="block";
-  db.ref("pesanan").orderByChild("kode").equalTo(id).once("value").then(snap=>{
-    const data=snap.val();if(!data){r.innerHTML='<div class="text-center py-6 text-red-500"><i class="fas fa-times-circle text-3xl mb-2 block"></i><p class="font-semibold">ID pesanan tidak ditemukan</p></div>';return;}
-    const[oid,o]=Object.entries(data)[0];
-    const isPm=!!(CU&&o.userId&&CU.uid===o.userId);
-    const s=SMAP[o.status]||SMAP["menunggu-pembayaran"];
-    const tWA=isPm?o.wa:sensWA(o.wa),tAl=isPm?o.alamat:sensAl(o.alamat),tNm=isPm?o.nama:sensTxt(o.nama,2,1);
-    const lk='<i class="fas fa-lock text-gray-300 text-xs ml-1"></i>';
-    const banner=!isPm?\`<div class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl p-3 mb-4 text-xs text-gray-500"><i class="fas fa-shield-halved text-gray-400 text-sm shrink-0"></i><span>Data pribadi disembunyikan. \${CU?"Pesanan ini bukan milik akun Anda.":'<button onclick="openAuth(\'login\')" class="text-green-600 font-semibold underline ml-1">Login</button> untuk lihat data lengkap.'}
-</span></div>\`:"";
-    const cdHtml=o.status==="menunggu-pembayaran"?\`<div class="mt-3"><span class="cd" data-exp="\${o.waktu+EXP}"><i class="fas fa-hourglass-half mr-1"></i>Menghitung...</span></div>\`:"";
-    let riwayat="";
-    if(o.riwayatStatus){riwayat='<div class="mt-4 border-t pt-4"><p class="font-semibold text-sm text-gray-700 mb-3">Riwayat Status</p>';o.riwayatStatus.slice().reverse().forEach(rv=>{riwayat+=\`<div class="flex gap-3 mb-2"><div style="width:8px;height:8px;border-radius:50%;background:#22c55e;margin-top:5px;flex-shrink:0"></div><div><p class="text-sm font-medium">\${SMAP[rv.status]?.l||rv.status}</p><p class="text-xs text-gray-400">\${new Date(rv.waktu).toLocaleString("id-ID")}</p>\${rv.catatan?\`<p class="text-xs text-gray-500">\${rv.catatan}</p>\`:""}</div></div>\`;});riwayat+="</div>";}
-    let payHtml="";
-    if(isPm&&o.status==="menunggu-pembayaran"){db.ref("pengaturan/rekening").once("value").then(rs=>{const rek=rs.val();if(!rek)return;const el=document.getElementById("cekPay");if(el)el.innerHTML=\`<div class="rek mt-3"><p style="color:rgba(255,255,255,.8);font-size:12px;margin-bottom:4px">Transfer ke rekening</p><p style="font-size:18px;font-weight:800;font-family:monospace">\${rek.bank} • \${rek.nomor}</p><p style="font-size:12px;margin-top:2px">a.n. \${rek.nama}</p><p style="font-size:18px;font-weight:800;margin-top:8px">\${rp(o.total)}</p></div>\`;});payHtml='<div id="cekPay"></div>';}
-    const alasan=o.status==="ditolak"?\`<div class="mt-3 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700"><i class="fas fa-times-circle mr-1"></i><strong>Alasan:</strong> \${o.alasanTolak||(o.riwayatStatus?.slice().reverse().find(rv=>rv.status==="ditolak")?.catatan)||"-"}</div>\`:"";
-    const ulBtn=isPm&&o.status==="selesai"&&!o.dapatUlasan?\`<button onclick="openReview(\'\${oid}\',\'\${o.produkId}\',\'\${o.produkNama}\')" class="btn-g wf jc mt-4"><i class="fas fa-star"></i> Berikan Ulasan</button>\`:"";
-    const kdInfo=isPm&&o.status==="kadaluarsa"?\`<div class="mt-3 p-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-500 text-center"><i class="fas fa-clock mr-1"></i>Hangus karena tidak dikonfirmasi dalam 10 menit.<br><button onclick="document.getElementById(\'cekRes\').style.display=\'none\';window.scrollTo({top:0,behavior:\'smooth\'})" class="text-green-600 font-semibold mt-2 inline-block">← Pesan lagi</button></div>\`:"";
-    r.innerHTML=\`<div class="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">\${banner}<div class="flex justify-between items-start mb-4"><div><p class="text-xs text-gray-400 mb-1">ID Pesanan</p><p class="font-mono font-bold text-lg text-gray-800">\${o.kode}</p></div><span class="sbadge \${s.c}">\${s.l}</span></div>\${cdHtml}\${payHtml}<div class="grid grid-cols-2 gap-3 my-4 text-sm"><div><p class="text-gray-400 text-xs">Nama</p><p class="font-semibold">\${tNm}\${!isPm?lk:""}</p></div><div><p class="text-gray-400 text-xs">WhatsApp</p><p class="font-semibold">\${tWA}\${!isPm?lk:""}</p></div><div class="col-span-2"><p class="text-gray-400 text-xs">Alamat</p><p class="font-semibold">\${tAl}\${!isPm?lk:""}</p></div><div><p class="text-gray-400 text-xs">Produk</p><p class="font-semibold">\${o.produkNama}</p></div><div><p class="text-gray-400 text-xs">Jumlah</p><p class="font-semibold">\${o.jumlah} pcs</p></div><div><p class="text-gray-400 text-xs">Total</p><p class="font-bold text-green-700">\${rp(o.total)}</p></div></div>\${riwayat}\${alasan}\${ulBtn}\${kdInfo}</div>\`;
+  var id=el("cekId").value.trim();if(!id){toast("Masukkan ID pesanan!","error");return;}
+  var r=el("cekRes");r.innerHTML='<div class="text-center py-8"><div class="spin mx-auto"></div></div>';r.style.display="block";
+  db.ref("pesanan").orderByChild("kode").equalTo(id).once("value").then(function(snap){
+    var data=snap.val();
+    if(!data){r.innerHTML='<div class="text-center py-6 text-red-500"><i class="fas fa-times-circle text-3xl mb-2 block"></i><p class="font-semibold">ID pesanan tidak ditemukan</p></div>';return;}
+    var entries=Object.entries(data),oid=entries[0][0],o=entries[0][1];
+    var isPm=!!(CU&&o.userId&&CU.uid===o.userId);
+    var s=SMAP[o.status]||SMAP["menunggu-pembayaran"];
+    var tWA=isPm?o.wa:sensWA(o.wa),tAl=isPm?o.alamat:sensAl(o.alamat),tNm=isPm?o.nama:sensTxt(o.nama,2,1);
+    var lk='<i class="fas fa-lock text-gray-300 text-xs ml-1"></i>';
+    var banner="";
+    if(!isPm){
+      var loginBtn=CU?"":'<button onclick="openAuth(\'login\')" class="text-green-600 font-semibold underline ml-1">Login</button> untuk lihat data lengkap.';
+      var msg=CU?"Pesanan ini bukan milik akun Anda.":loginBtn;
+      banner='<div class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl p-3 mb-4 text-xs text-gray-500"><i class="fas fa-shield-halved text-gray-400 text-sm shrink-0"></i><span>Data pribadi disembunyikan. '+msg+'</span></div>';
+    }
+    var cdHtml=o.status==="menunggu-pembayaran"?'<div class="mt-3"><span class="cd" data-exp="'+(o.waktu+EXP)+'"><i class="fas fa-hourglass-half mr-1"></i>Menghitung...</span></div>':"";
+    var riwayat="";
+    if(o.riwayatStatus){
+      riwayat='<div class="mt-4 border-t pt-4"><p class="font-semibold text-sm text-gray-700 mb-3">Riwayat Status</p>';
+      var rv=o.riwayatStatus.slice().reverse();
+      rv.forEach(function(rv){
+        var rvs=SMAP[rv.status]?SMAP[rv.status].l:rv.status;
+        riwayat+='<div class="flex gap-3 mb-2"><div style="width:8px;height:8px;border-radius:50%;background:#22c55e;margin-top:5px;flex-shrink:0"></div><div><p class="text-sm font-medium">'+rvs+'</p><p class="text-xs text-gray-400">'+new Date(rv.waktu).toLocaleString("id-ID")+'</p>'+(rv.catatan?'<p class="text-xs text-gray-500">'+rv.catatan+'</p>':"")+'</div></div>';
+      });
+      riwayat+='</div>';
+    }
+    var payHtml="";
+    if(isPm&&o.status==="menunggu-pembayaran"){
+      db.ref("pengaturan/rekening").once("value").then(function(rs){
+        var rek=rs.val();if(!rek)return;
+        var pe=el("cekPay");
+        if(pe)pe.innerHTML='<div class="rek mt-3"><p style="color:rgba(255,255,255,.8);font-size:12px;margin-bottom:4px">Transfer ke rekening</p><p style="font-size:18px;font-weight:800;font-family:monospace">'+rek.bank+' &bull; '+rek.nomor+'</p><p style="font-size:12px;margin-top:2px">a.n. '+rek.nama+'</p><p style="font-size:18px;font-weight:800;margin-top:8px">'+rp(o.total)+'</p></div>';
+      });
+      payHtml='<div id="cekPay"></div>';
+    }
+    var alasanHtml="";
+    if(o.status==="ditolak"){
+      var alasan=o.alasanTolak||"-";
+      if(!alasan&&o.riwayatStatus){var rv2=o.riwayatStatus.slice().reverse().find(function(x){return x.status==="ditolak";});if(rv2)alasan=rv2.catatan||"-";}
+      alasanHtml='<div class="mt-3 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700"><i class="fas fa-times-circle mr-1"></i><strong>Alasan:</strong> '+alasan+'</div>';
+    }
+    var ulBtn="";
+    if(isPm&&o.status==="selesai"&&!o.dapatUlasan){
+      ulBtn='<button onclick="openReview(\''+oid+'\',\''+o.produkId+'\',\''+o.produkNama+'\')" class="btn-g wf jc mt-4"><i class="fas fa-star"></i> Berikan Ulasan</button>';
+    }
+    var kdInfo="";
+    if(isPm&&o.status==="kadaluarsa"){
+      kdInfo='<div class="mt-3 p-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-500 text-center"><i class="fas fa-clock mr-1"></i>Hangus karena tidak dikonfirmasi dalam 10 menit.<br><button onclick="el(\'cekRes\').style.display=\'none\';window.scrollTo({top:0,behavior:\'smooth\'})" class="text-green-600 font-semibold mt-2 inline-block">&#8592; Pesan lagi</button></div>';
+    }
+    r.innerHTML='<div class="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">'+
+      banner+
+      '<div class="flex justify-between items-start mb-4"><div><p class="text-xs text-gray-400 mb-1">ID Pesanan</p><p class="font-mono font-bold text-lg text-gray-800">'+o.kode+'</p></div>'+
+      '<span class="sbadge '+s.c+'">'+s.l+'</span></div>'+
+      cdHtml+payHtml+
+      '<div class="grid grid-cols-2 gap-3 my-4 text-sm">'+
+      '<div><p class="text-gray-400 text-xs">Nama</p><p class="font-semibold">'+tNm+(isPm?"":lk)+'</p></div>'+
+      '<div><p class="text-gray-400 text-xs">WhatsApp</p><p class="font-semibold">'+tWA+(isPm?"":lk)+'</p></div>'+
+      '<div class="col-span-2"><p class="text-gray-400 text-xs">Alamat</p><p class="font-semibold">'+tAl+(isPm?"":lk)+'</p></div>'+
+      '<div><p class="text-gray-400 text-xs">Produk</p><p class="font-semibold">'+o.produkNama+'</p></div>'+
+      '<div><p class="text-gray-400 text-xs">Jumlah</p><p class="font-semibold">'+o.jumlah+' pcs</p></div>'+
+      '<div><p class="text-gray-400 text-xs">Total</p><p class="font-bold text-green-700">'+rp(o.total)+'</p></div>'+
+      '</div>'+riwayat+alasanHtml+ulBtn+kdInfo+'</div>';
     startCD();
   });
 }
 
-let CD=false;
-function startCD(){if(CD)return;CD=true;setInterval(()=>{document.querySelectorAll(".cd[data-exp]").forEach(el=>{const s=Number(el.dataset.exp)-Date.now();if(s>0){const m=Math.floor(s/60000),sc=Math.floor((s%60000)/1000);el.innerHTML=\`<i class="fas fa-hourglass-half mr-1"></i>Sisa: \${m}:\${String(sc).padStart(2,"0")}\`;}else{el.innerHTML="<i class='fas fa-hourglass-end mr-1'></i>Kadaluarsa";el.style.background="#f1f5f9";el.style.color="#94a3b8";}});},1000);}
+function startCD(){
+  if(CDok)return;CDok=true;
+  setInterval(function(){
+    document.querySelectorAll(".cd[data-exp]").forEach(function(e){
+      var s=Number(e.dataset.exp)-Date.now();
+      if(s>0){var m=Math.floor(s/60000),sc=Math.floor((s%60000)/1000);e.innerHTML='<i class="fas fa-hourglass-half mr-1"></i>Sisa: '+m+':'+String(sc).padStart(2,"0");}
+      else{e.innerHTML='<i class="fas fa-hourglass-end mr-1"></i>Kadaluarsa';e.style.background="#f1f5f9";e.style.color="#94a3b8";}
+    });
+  },1000);
+}
 
 // RIWAYAT
-function openRiwayat(){if(!CU){openAuth("login");return;}closeDrop();document.getElementById("riwM").classList.add("show");loadRiwayat("all");}
-
-async function loadRiwayat(filter="all"){
-  if(!CU)return;const c=document.getElementById("riwList");
+function openRiwayat(){if(!CU){openAuth("login");return;}closeDrop();el("riwM").classList.add("show");loadRiwayat("all");}
+function loadRiwayat(filter){
+  if(!CU)return;
+  var c=el("riwList");
   c.innerHTML='<div class="text-center py-8"><div class="spin mx-auto"></div></div>';
-  const snap=await db.ref("pesanan").orderByChild("userId").equalTo(CU.uid).once("value");
-  const data=snap.val();
-  if(!data){c.innerHTML='<div class="text-center py-12 text-gray-400"><i class="fas fa-box-open text-4xl mb-3 opacity-30 block"></i><p>Belum ada pesanan</p></div>';return;}
-  let rek=null;try{const rs=await db.ref("pengaturan/rekening").once("value");rek=rs.val();}catch{}
-  let orders=Object.entries(data).map(([_id,o])=>({...o,_id})).reverse();
-  if(filter!=="all")orders=orders.filter(o=>o.status===filter);
-  if(!orders.length){c.innerHTML='<div class="text-center py-12 text-gray-400"><p>Tidak ada pesanan ini</p></div>';return;}
-  c.innerHTML=orders.map(o=>{
-    const s=SMAP[o.status]||SMAP["menunggu-pembayaran"];let ex="";
-    if(o.status==="menunggu-pembayaran"){
-      ex=\`<div class="mt-3"><span class="cd text-xs" data-exp="\${o.waktu+EXP}"><i class="fas fa-hourglass-half mr-1"></i>Menghitung...</span></div>\`;
-      if(rek)ex+=\`<div class="mt-3 p-3 rounded-xl" style="background:linear-gradient(135deg,#166534,#16a34a);color:#fff"><p style="font-size:12px;opacity:.8">Transfer ke:</p><p style="font-weight:800;font-family:monospace">\${rek.bank} • \${rek.nomor}</p><p style="font-size:12px;margin-top:2px">a.n. \${rek.nama}</p><p style="font-weight:800;font-size:18px;margin-top:6px">\${rp(o.total)}</p><button onclick="navigator.clipboard?.writeText(\'\${rek.nomor}\').then(()=>toast(\'✅ Nomor disalin!\'))" style="margin-top:8px;background:rgba(255,255,255,.2);color:#fff;border:none;padding:5px 12px;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit"><i class="fas fa-copy mr-1"></i>Salin Nomor</button></div>\`;
-    }else if(o.status==="ditolak"){
-      const al=o.alasanTolak||(o.riwayatStatus?.slice().reverse().find(r=>r.status==="ditolak")?.catatan)||"-";
-      ex=\`<div class="mt-2 p-2 bg-red-50 border border-red-100 rounded-lg text-xs text-red-600"><i class="fas fa-times-circle mr-1"></i><strong>Alasan:</strong> \${al}</div>\`;
-    }else if(o.status==="selesai"&&!o.dapatUlasan){
-      ex=\`<button onclick="openReview(\'\${o._id}\',\'\${o.produkId}\',\'\${o.produkNama}\')" class="btn-g wf jc mt-3" style="font-size:13px;padding:10px"><i class="fas fa-star"></i> Kasih Ulasan</button>\`;
-    }else if(o.status==="proses"){ex='<p class="mt-2 text-xs text-blue-600"><i class="fas fa-clock mr-1"></i>Pesanan sedang disiapkan penjual</p>';}
-    else if(o.status==="dikirim"){ex='<p class="mt-2 text-xs text-purple-600"><i class="fas fa-truck mr-1"></i>Dalam pengiriman, estimasi 2–3 hari kerja</p>';}
-    return \`<div class="bg-white rounded-2xl p-4 mb-3 border border-gray-100 shadow-sm"><div class="flex justify-between items-center mb-1"><p class="font-mono text-xs font-bold text-gray-600">\${o.kode}</p><span class="sbadge \${s.c}">\${s.l}</span></div><p class="font-semibold text-gray-800 text-sm">\${o.produkNama}</p><p class="text-xs text-gray-400 mt-0.5">\${o.jumlah} pcs · \${new Date(o.waktu).toLocaleDateString("id-ID",{day:"2-digit",month:"short",year:"numeric"})}</p><p class="text-sm font-bold text-green-700 mt-1">\${rp(o.total)}</p>\${ex}</div>\`;
-  }).join("");
-  startCD();
+  var rekening=null;
+  db.ref("pengaturan/rekening").once("value").then(function(rs){
+    rekening=rs.val();
+    return db.ref("pesanan").orderByChild("userId").equalTo(CU.uid).once("value");
+  }).then(function(snap){
+    var data=snap.val();
+    if(!data){c.innerHTML='<div class="text-center py-12 text-gray-400"><i class="fas fa-box-open text-4xl mb-3 opacity-30 block"></i><p>Belum ada pesanan</p></div>';return;}
+    var orders=Object.keys(data).map(function(id){return Object.assign({},data[id],{_id:id});}).reverse();
+    if(filter&&filter!=="all")orders=orders.filter(function(o){return o.status===filter;});
+    if(!orders.length){c.innerHTML='<div class="text-center py-12 text-gray-400"><p>Tidak ada pesanan ini</p></div>';return;}
+    var html="";
+    orders.forEach(function(o){
+      var s=SMAP[o.status]||SMAP["menunggu-pembayaran"];
+      var ex="";
+      if(o.status==="menunggu-pembayaran"){
+        ex='<div class="mt-3"><span class="cd text-xs" data-exp="'+(o.waktu+EXP)+'"><i class="fas fa-hourglass-half mr-1"></i>Menghitung...</span></div>';
+        if(rekening){
+          ex+='<div class="mt-3 p-3 rounded-xl" style="background:linear-gradient(135deg,#166534,#16a34a);color:#fff">'+
+            '<p style="font-size:12px;opacity:.8">Transfer ke:</p>'+
+            '<p style="font-weight:800;font-family:monospace">'+rekening.bank+' &bull; '+rekening.nomor+'</p>'+
+            '<p style="font-size:12px;margin-top:2px">a.n. '+rekening.nama+'</p>'+
+            '<p style="font-weight:800;font-size:18px;margin-top:6px">'+rp(o.total)+'</p>'+
+            '<button onclick="navigator.clipboard&&navigator.clipboard.writeText(\''+rekening.nomor+'\').then(function(){toast(\'✅ Nomor disalin!\');})" style="margin-top:8px;background:rgba(255,255,255,.2);color:#fff;border:none;padding:5px 12px;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit"><i class="fas fa-copy mr-1"></i>Salin Nomor</button>'+
+            '</div>';
+        }
+      } else if(o.status==="ditolak"){
+        var al=o.alasanTolak||"-";
+        if(!al&&o.riwayatStatus){var rv3=o.riwayatStatus.slice().reverse().find(function(x){return x.status==="ditolak";});if(rv3&&rv3.catatan)al=rv3.catatan;}
+        ex='<div class="mt-2 p-2 bg-red-50 border border-red-100 rounded-lg text-xs text-red-600"><i class="fas fa-times-circle mr-1"></i><strong>Alasan:</strong> '+al+'</div>';
+      } else if(o.status==="selesai"&&!o.dapatUlasan){
+        ex='<button onclick="openReview(\''+o._id+'\',\''+o.produkId+'\',\''+o.produkNama+'\')" class="btn-g wf jc mt-3" style="font-size:13px;padding:10px"><i class="fas fa-star"></i> Kasih Ulasan</button>';
+      } else if(o.status==="proses"){
+        ex='<p class="mt-2 text-xs text-blue-600"><i class="fas fa-clock mr-1"></i>Pesanan sedang disiapkan penjual</p>';
+      } else if(o.status==="dikirim"){
+        ex='<p class="mt-2 text-xs text-purple-600"><i class="fas fa-truck mr-1"></i>Dalam pengiriman, estimasi 2-3 hari kerja</p>';
+      }
+      var tgl=new Date(o.waktu).toLocaleDateString("id-ID",{day:"2-digit",month:"short",year:"numeric"});
+      html+='<div class="bg-white rounded-2xl p-4 mb-3 border border-gray-100 shadow-sm">'+
+        '<div class="flex justify-between items-center mb-1"><p class="font-mono text-xs font-bold text-gray-600">'+o.kode+'</p><span class="sbadge '+s.c+'">'+s.l+'</span></div>'+
+        '<p class="font-semibold text-gray-800 text-sm">'+o.produkNama+'</p>'+
+        '<p class="text-xs text-gray-400 mt-0.5">'+o.jumlah+' pcs &middot; '+tgl+'</p>'+
+        '<p class="text-sm font-bold text-green-700 mt-1">'+rp(o.total)+'</p>'+
+        ex+'</div>';
+    });
+    c.innerHTML=html;
+    startCD();
+  });
 }
 
 // REVIEW
-let RV=0;const RL=["","Sangat Buruk 😞","Kurang Baik 😐","Cukup 🙂","Bagus 😊","Sangat Bagus 🤩"];
-function setStars(v){RV=v;document.querySelectorAll("#starIn i").forEach((s,i)=>s.classList.toggle("on",i<v));const lb=document.getElementById("starLbl");if(lb)lb.textContent=v?RL[v]:"";}
-function openReview(oid,pid,pnm){document.getElementById("revOid").value=oid;document.getElementById("revPid").value=pid;document.getElementById("revPnm").textContent=pnm;RV=0;setStars(0);document.getElementById("revTxt").value="";document.getElementById("revM").classList.add("show");document.getElementById("riwM").classList.remove("show");}
-async function submitReview(){
-  if(!CU){toast("Login dahulu!","error");return;}if(!RV){toast("Pilih rating dahulu!","error");return;}
-  const ul=document.getElementById("revTxt").value.trim();if(!ul){toast("Tulis ulasan dahulu!","error");return;}
-  const oid=document.getElementById("revOid").value,pid=document.getElementById("revPid").value,pnm=document.getElementById("revPnm").textContent;
-  try{
-    await db.ref("testimoni").push({nama:CU.displayName||CU.email.split("@")[0],email:CU.email,foto:CU.photoURL||"",rating:RV,ulasan:ul,produk:pnm,waktu:Date.now()});
-    db.ref("produk/"+pid+"/ulasanCount").transaction(c=>(c||0)+1);
-    if(oid)await db.ref("pesanan/"+oid).update({dapatUlasan:true});
-    toast("⭐ Ulasan terkirim!");document.getElementById("revM").classList.remove("show");loadTesti();
-  }catch(err){toast("❌ Gagal: "+err.message,"error");}
+function setStars(v){
+  RV=v;
+  document.querySelectorAll("#starIn i").forEach(function(s,i){s.classList.toggle("on",i<v);});
+  var lb=el("starLbl");if(lb)lb.textContent=v?RL[v]:"";
+}
+function openReview(oid,pid,pnm){
+  el("revOid").value=oid;el("revPid").value=pid;el("revPnm").textContent=pnm;
+  RV=0;setStars(0);el("revTxt").value="";
+  el("revM").classList.add("show");el("riwM").classList.remove("show");
+}
+function submitReview(){
+  if(!CU){toast("Login dahulu!","error");return;}
+  if(!RV){toast("Pilih rating dahulu!","error");return;}
+  var ul=el("revTxt").value.trim();if(!ul){toast("Tulis ulasan dahulu!","error");return;}
+  var oid=el("revOid").value,pid=el("revPid").value,pnm=el("revPnm").textContent;
+  db.ref("testimoni").push({
+    nama:CU.displayName||CU.email.split("@")[0],email:CU.email,foto:CU.photoURL||"",
+    rating:RV,ulasan:ul,produk:pnm,waktu:Date.now()
+  }).then(function(){
+    db.ref("produk/"+pid+"/ulasanCount").transaction(function(c){return(c||0)+1;});
+    if(oid)db.ref("pesanan/"+oid).update({dapatUlasan:true});
+    toast("⭐ Ulasan terkirim!");el("revM").classList.remove("show");loadTesti();
+  }).catch(function(err){toast("❌ Gagal: "+err.message,"error");});
 }
 
 // SETTINGS
 function loadSettings(){
-  db.ref("pengaturan").once("value").then(snap=>{
-    const cfg=snap.val()||{};
-    if(cfg.waNumber){OWA=cfg.waNumber;const w=document.getElementById("waFlt");if(w)w.href="https://wa.me/"+cfg.waNumber;}
-    const ne=document.getElementById("nKontak");if(ne&&cfg.waNumber){const lo="0"+cfg.waNumber.substring(2);ne.textContent=lo.replace(/(\d{4})(\d{4})(\d+)/,"$1-$2-$3");}
-    const we=document.getElementById("waKtk");if(we&&cfg.waNumber)we.href="https://wa.me/"+cfg.waNumber;
-    const ga=cfg.googleLoginAktif===true;
-    ["gLS","gRS"].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display=ga?"block":"none";});
+  db.ref("pengaturan").once("value").then(function(snap){
+    var cfg=snap.val()||{};
+    if(cfg.waNumber){
+      OWA=cfg.waNumber;
+      var w=el("waFlt");if(w)w.href="https://wa.me/"+cfg.waNumber;
+      var ne=el("nKontak");
+      if(ne){var lo="0"+cfg.waNumber.substring(2);ne.textContent=lo.replace(/(\d{4})(\d{4})(\d+)/,"$1-$2-$3");}
+      var we=el("waKtk");if(we)we.href="https://wa.me/"+cfg.waNumber;
+    }
+    var ga=cfg.googleLoginAktif===true;
+    ["gLS","gRS"].forEach(function(id){var e=el(id);if(e)e.style.display=ga?"block":"none";});
   });
 }
 
-window.onload=()=>{
+// INIT
+window.onload=function(){
   loadSettings();loadProduk();loadTesti();startCD();
-  setInterval(()=>{db.ref("pesanan").orderByChild("status").equalTo("selesai").once("value").then(s=>{let t=0;if(s.val())Object.values(s.val()).forEach(o=>t+=o.jumlah||0);const el=document.getElementById("totTj");if(el)el.textContent=t+" Terjual";});},5000);
+  // Star events
+  document.querySelectorAll("#starIn i").forEach(function(star){
+    var v=parseInt(star.dataset.v);
+    star.addEventListener("click",function(){setStars(v);});
+    star.addEventListener("mouseenter",function(){document.querySelectorAll("#starIn i").forEach(function(s,i){s.classList.toggle("on",i<v);});});
+    star.addEventListener("mouseleave",function(){setStars(RV);});
+  });
+  var si=el("starIn");
+  if(si){
+    si.addEventListener("touchmove",function(e){
+      e.preventDefault();var t=e.touches[0];
+      si.querySelectorAll("i").forEach(function(s,i){
+        var r=s.getBoundingClientRect();
+        if(t.clientX>=r.left&&t.clientX<=r.right){RV=i+1;setStars(i+1);}
+      });
+    },{passive:false});
+  }
+  // Foto modal touch
+  var fm=el("fM");
+  if(fm){
+    var sx=0;
+    fm.addEventListener("touchstart",function(e){sx=e.touches[0].clientX;},{passive:true});
+    fm.addEventListener("touchend",function(e){var d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>50){if(d>0)fNext();else fPrev();}},{passive:true});
+  }
+  // Hamburger
+  var hb=el("hbtn"),mm=el("mmenu");if(hb&&mm)hb.addEventListener("click",function(){mm.classList.toggle("open");});
+  // ESC key
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"){closeFoto();document.querySelectorAll(".modal.show").forEach(function(m){m.classList.remove("show");});}
+    var fmv=el("fM");if(fmv&&fmv.classList.contains("show")){if(e.key==="ArrowLeft")fPrev();if(e.key==="ArrowRight")fNext();}
+  });
+  // Refresh terjual
+  setInterval(function(){
+    db.ref("pesanan").orderByChild("status").equalTo("selesai").once("value").then(function(s){
+      var t=0;if(s.val())Object.values(s.val()).forEach(function(o){t+=o.jumlah||0;});
+      var e=el("totTj");if(e)e.textContent=t+" Terjual";
+    });
+  },5000);
 };
 </script>
 
@@ -539,7 +782,7 @@ window.onload=()=>{
 <div id="mmenu" class="mmenu mt-3 pt-3 border-t border-green-600">
   <div class="flex flex-col gap-2">
     <a href="#produk" class="navlink">Produk</a><a href="#cara-order" class="navlink">Cara Order</a>
-    <a href="#testimoni" class="navlink">Testimoni</a><a href="#cek-pesanan" class="navlink">Cek Pesanan</a><a href="#kontak" class="navlink">Kontak</a>
+    <a href="#testimoni" class="navlink">Testimoni</a><a href="#cek-pesanan" class="navlink">Cek Pesanan</a>
     <div class="flex gap-2 mt-2">
       <button onclick="openAuth('login')" class="flex-1 text-white text-sm font-semibold px-4 py-2 rounded-xl border border-white border-opacity-30" style="background:transparent;cursor:pointer">Masuk</button>
       <button onclick="openAuth('daftar')" class="flex-1 bg-white text-green-700 text-sm font-bold px-4 py-2 rounded-xl" style="border:none;cursor:pointer">Daftar</button>
@@ -555,18 +798,18 @@ window.onload=()=>{
 <div class="container mx-auto px-4 text-center text-white relative" style="z-index:1">
   <div class="inline-flex items-center gap-2 mb-6 border border-white border-opacity-20 px-4 py-2 rounded-full text-sm" style="background:rgba(255,255,255,.12);backdrop-filter:blur(4px)"><i class="fas fa-star text-amber-300"></i>Dipercaya ribuan pelanggan Indonesia</div>
   <h1 class="text-5xl md:text-6xl font-bold mb-4" style="line-height:1.15">Herbal Alami<br><span class="text-amber-300">Untuk Kesehatan</span></h1>
-  <p class="text-xl text-green-100 mb-2">100% Alami · Tradisional · Berkhasiat</p>
-  <p class="text-sm text-green-200 mb-8">🌿 Langsung Chat WA &nbsp;•&nbsp; 💬 Konsultasi Gratis &nbsp;•&nbsp; 📦 Kirim Seluruh Indonesia</p>
+  <p class="text-xl text-green-100 mb-2">100% Alami &middot; Tradisional &middot; Berkhasiat</p>
+  <p class="text-sm text-green-200 mb-8">🌿 Chat WA &nbsp;&bull;&nbsp; 💬 Konsultasi Gratis &nbsp;&bull;&nbsp; 📦 Kirim Seluruh Indonesia</p>
   <div class="flex flex-wrap gap-4 justify-center">
-    <a href="#produk" class="btn-g text-base px-8 py-3.5"><i class="fas fa-shopping-bag"></i> Lihat Produk</a>
-    <a href="https://wa.me/6285187980564" target="_blank" class="btn-w text-base px-8 py-3.5"><i class="fab fa-whatsapp"></i> Chat Sekarang</a>
+    <a href="#produk" class="btn-g text-base px-8 py-3"><i class="fas fa-shopping-bag"></i> Lihat Produk</a>
+    <a href="https://wa.me/6285187980564" target="_blank" class="btn-w text-base px-8 py-3"><i class="fab fa-whatsapp"></i> Chat Sekarang</a>
   </div>
   <div class="flex justify-center gap-8 mt-12 text-center">
-    <div><p class="text-3xl font-bold" style="font-family:'Playfair Display',serif">500+</p><p class="text-green-200 text-sm">Pelanggan</p></div>
+    <div><p class="text-3xl font-bold">500+</p><p class="text-green-200 text-sm">Pelanggan</p></div>
     <div style="border-left:1px solid rgba(255,255,255,.2)"></div>
-    <div><p class="text-3xl font-bold" style="font-family:'Playfair Display',serif">100%</p><p class="text-green-200 text-sm">Herbal Alami</p></div>
+    <div><p class="text-3xl font-bold">100%</p><p class="text-green-200 text-sm">Herbal Alami</p></div>
     <div style="border-left:1px solid rgba(255,255,255,.2)"></div>
-    <div><p class="text-3xl font-bold" style="font-family:'Playfair Display',serif">⭐4.9</p><p class="text-green-200 text-sm">Rating</p></div>
+    <div><p class="text-3xl font-bold">&#11088;4.9</p><p class="text-green-200 text-sm">Rating</p></div>
   </div>
 </div>
 </section>
@@ -597,7 +840,7 @@ window.onload=()=>{
 <!-- TESTIMONI -->
 <section id="testimoni" class="py-16 bg-white">
 <div class="container mx-auto px-4">
-  <div class="stitle"><h2>⭐ Kata Mereka</h2><p>Testimoni nyata dari pelanggan setia kami</p><div class="sdiv"></div></div>
+  <div class="stitle"><h2>&#11088; Kata Mereka</h2><p>Testimoni nyata dari pelanggan setia kami</p><div class="sdiv"></div></div>
   <div id="testiList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <div class="col-span-3 text-center py-12"><div class="spin mx-auto"></div></div>
   </div>
@@ -623,16 +866,11 @@ window.onload=()=>{
 <!-- KONTAK -->
 <section id="kontak" class="py-16 bg-white">
 <div class="container mx-auto px-4 text-center">
-  <div class="stitle"><h2>💬 Konsultasi Gratis</h2><p>Tanya produk, keluhan, atau konsultasi — kami siap membantu</p><div class="sdiv"></div></div>
+  <div class="stitle"><h2>💬 Konsultasi Gratis</h2><p>Tanya produk atau konsultasi kesehatan</p><div class="sdiv"></div></div>
   <p class="text-sm text-gray-400 mb-2 uppercase tracking-widest font-semibold">Nomor Konsultasi</p>
   <p class="text-4xl font-bold text-green-700 mb-2" id="nKontak" style="font-family:'Playfair Display',serif">0851-8798-0564</p>
-  <p class="text-gray-400 text-sm mb-8">Senin – Minggu · 07.00 – 22.00 WIB</p>
+  <p class="text-gray-400 text-sm mb-8">Senin &ndash; Minggu &middot; 07.00 &ndash; 22.00 WIB</p>
   <a href="https://wa.me/6285187980564" target="_blank" id="waKtk" class="btn-w text-base px-10 py-4"><i class="fab fa-whatsapp text-xl"></i> Konsultasi via WhatsApp</a>
-  <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto text-sm text-gray-500">
-    <div class="flex items-center gap-2 justify-center"><i class="fas fa-comments text-green-500"></i> Konsultasi Gratis</div>
-    <div class="flex items-center gap-2 justify-center"><i class="fas fa-truck text-green-500"></i> Kirim Seluruh Indonesia</div>
-    <div class="flex items-center gap-2 justify-center"><i class="fas fa-leaf text-green-500"></i> 100% Herbal Alami</div>
-  </div>
 </div>
 </section>
 
@@ -643,7 +881,7 @@ window.onload=()=>{
     <div><h3 class="text-white font-bold text-xl mb-3" style="font-family:'Playfair Display',serif"><i class="fas fa-leaf mr-2"></i>Jamu Herbal Alami</h3><p class="text-sm leading-relaxed">Produk herbal tradisional pilihan untuk menjaga kesehatan keluarga Indonesia secara alami.</p></div>
     <div><h4 class="text-white font-bold mb-3">Menu Cepat</h4><div class="flex flex-col gap-2 text-sm">
       <a href="#produk" style="color:inherit;text-decoration:none">🌿 Produk</a>
-      <a href="#testimoni" style="color:inherit;text-decoration:none">⭐ Testimoni</a>
+      <a href="#testimoni" style="color:inherit;text-decoration:none">&#11088; Testimoni</a>
       <a href="#cek-pesanan" style="color:inherit;text-decoration:none">🔍 Cek Pesanan</a>
       <a href="#kontak" style="color:inherit;text-decoration:none">💬 Kontak</a>
     </div></div>
@@ -653,7 +891,7 @@ window.onload=()=>{
       <a id="ftAdLink" href="#" onclick="goAdmin()" style="display:none;color:inherit;text-decoration:none">⚙️ Admin Panel</a>
     </div></div>
   </div>
-  <div class="border-t border-green-700 pt-6 text-center text-sm"><p>© 2024 Jamu Herbal Alami · Dibuat dengan ❤️ untuk kesehatan Indonesia</p></div>
+  <div class="border-t border-green-700 pt-6 text-center text-sm"><p>&copy; 2024 Jamu Herbal Alami &middot; Dibuat dengan &#10084;&#65039; untuk kesehatan Indonesia</p></div>
 </div>
 </footer>
 
@@ -663,22 +901,23 @@ window.onload=()=>{
   <button onclick="closeAuth()" style="position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:#f3f4f6;border:none;cursor:pointer;font-size:16px;color:#6b7280">&times;</button>
   <div class="text-center mb-5">
     <div style="width:60px;height:60px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin:0 auto 12px"><i class="fas fa-leaf text-green-600 text-2xl"></i></div>
-    <h2 class="text-2xl font-bold text-gray-800" style="font-family:'Playfair Display',serif">Jamu Herbal Alami</h2>
+    <h2 class="text-2xl font-bold text-gray-800">Jamu Herbal Alami</h2>
   </div>
   <div class="flex gap-2 p-1 mb-5" style="background:#f3f4f6;border-radius:14px">
-    <div class="atab active" data-tab="login" onclick="_switchTab('login')"><i class="fas fa-sign-in-alt mr-1"></i> Masuk</div>
-    <div class="atab" data-tab="daftar" onclick="_switchTab('daftar')"><i class="fas fa-user-plus mr-1"></i> Daftar</div>
+    <div class="atab active" data-tab="login" onclick="switchTab('login')"><i class="fas fa-sign-in-alt mr-1"></i> Masuk</div>
+    <div class="atab" data-tab="daftar" onclick="switchTab('daftar')"><i class="fas fa-user-plus mr-1"></i> Daftar</div>
   </div>
   <div id="pLogin">
     <div id="lNotice" style="display:none;background:#fef3c7;border:1px solid #fbbf24;border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#92400e;align-items:center;gap:8px"></div>
     <form id="lF" onsubmit="doLogin(event)">
       <div class="fg"><label class="lbl">Email</label><input type="email" id="lEm" class="inp" placeholder="nama@email.com" required></div>
-      <div class="fg"><label class="lbl">Password</label><input type="password" id="lPw" class="inp" placeholder="••••••••" required></div>
+      <div class="fg"><label class="lbl">Password</label><input type="password" id="lPw" class="inp" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required></div>
       <p class="etxt" id="lErr"></p>
       <button type="submit" id="btnLogin" class="btn-g wf jc mb-3"><i class="fas fa-sign-in-alt"></i> Masuk</button>
     </form>
     <div class="text-center mb-2"><button onclick="showForgot()" style="background:none;border:none;cursor:pointer;color:var(--g2);font-size:13px;font-weight:600"><i class="fas fa-key mr-1"></i>Lupa password?</button></div>
-    <div id="gLS" style="display:none"><div class="divtxt">atau</div>
+    <div id="gLS" style="display:none">
+      <div class="divtxt">atau</div>
       <button onclick="loginGoogle()" style="width:100%;display:flex;align-items:center;justify-content:center;gap:12px;border:2px solid var(--bd);border-radius:12px;padding:11px;font-weight:600;font-size:14px;color:#374151;background:#fff;cursor:pointer;font-family:inherit">
         <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:20px;height:20px"> Lanjutkan dengan Google
       </button>
@@ -688,12 +927,16 @@ window.onload=()=>{
     <form id="rF" onsubmit="doReg(event)">
       <div class="fg"><label class="lbl">Nama Lengkap</label><input type="text" id="rNm" class="inp" placeholder="Nama lengkap" required></div>
       <div class="fg"><label class="lbl">Email</label><input type="email" id="rEm" class="inp" placeholder="nama@email.com" required></div>
-      <div class="fg"><label class="lbl">Password</label><input type="password" id="rPw" class="inp" placeholder="Min. 6 karakter" oninput="chkStr(this.value)" required><div class="sbar"><div class="sfill" id="sf"></div></div><p class="text-xs text-gray-400 mt-1" id="stxt"></p></div>
+      <div class="fg"><label class="lbl">Password</label><input type="password" id="rPw" class="inp" placeholder="Min. 6 karakter" oninput="chkStr(this.value)" required>
+        <div class="sbar"><div class="sfill" id="sf"></div></div>
+        <p class="text-xs text-gray-400 mt-1" id="stxt"></p>
+      </div>
       <div class="fg"><label class="lbl">Konfirmasi Password</label><input type="password" id="rCf" class="inp" placeholder="Ulangi password" required></div>
       <p class="etxt" id="rErr"></p>
       <button type="submit" id="btnReg" class="btn-g wf jc mb-3"><i class="fas fa-user-plus"></i> Daftar Sekarang</button>
     </form>
-    <div id="gRS" style="display:none"><div class="divtxt">atau</div>
+    <div id="gRS" style="display:none">
+      <div class="divtxt">atau</div>
       <button onclick="loginGoogle()" style="width:100%;display:flex;align-items:center;justify-content:center;gap:12px;border:2px solid var(--bd);border-radius:12px;padding:11px;font-weight:600;font-size:14px;color:#374151;background:#fff;cursor:pointer;font-family:inherit">
         <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:20px;height:20px"> Lanjutkan dengan Google
       </button>
@@ -701,7 +944,11 @@ window.onload=()=>{
   </div>
   <div id="pForgot" style="display:none">
     <button onclick="backLogin()" style="background:none;border:none;cursor:pointer;color:var(--mu);font-size:13px;display:flex;align-items:center;gap:6px;margin-bottom:16px;font-family:inherit"><i class="fas fa-arrow-left"></i> Kembali ke Login</button>
-    <div class="text-center mb-5"><div style="width:52px;height:52px;border-radius:50%;background:#dbeafe;display:flex;align-items:center;justify-content:center;margin:0 auto 12px"><i class="fas fa-key text-blue-500 text-xl"></i></div><h3 class="font-bold text-xl text-gray-800">Reset Password</h3><p class="text-gray-500 text-sm mt-1">Masukkan email dan kami kirim link reset</p></div>
+    <div class="text-center mb-5">
+      <div style="width:52px;height:52px;border-radius:50%;background:#dbeafe;display:flex;align-items:center;justify-content:center;margin:0 auto 12px"><i class="fas fa-key text-blue-500 text-xl"></i></div>
+      <h3 class="font-bold text-xl text-gray-800">Reset Password</h3>
+      <p class="text-gray-500 text-sm mt-1">Masukkan email dan kami kirim link reset</p>
+    </div>
     <form id="fF" onsubmit="doForgot(event)">
       <div class="fg"><label class="lbl">Email Terdaftar</label><input type="email" id="fEm" class="inp" placeholder="nama@email.com" required></div>
       <p class="etxt" id="fErr"></p>
@@ -715,7 +962,10 @@ window.onload=()=>{
 <!-- ORDER MODAL -->
 <div id="ordM" class="modal">
 <div class="mbox">
-  <div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold" style="font-family:'Playfair Display',serif">📋 Detail Pemesanan</h3><button onclick="closeOrder()" style="width:32px;height:32px;border-radius:50%;background:#f3f4f6;border:none;cursor:pointer;font-size:16px;color:#6b7280">&times;</button></div>
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="text-xl font-bold">📋 Detail Pemesanan</h3>
+    <button onclick="closeOrder()" style="width:32px;height:32px;border-radius:50%;background:#f3f4f6;border:none;cursor:pointer;font-size:16px;color:#6b7280">&times;</button>
+  </div>
   <div id="oPinfo" class="mb-4 p-4 bg-green-50 rounded-xl border border-green-100"></div>
   <div class="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-800"><i class="fas fa-hourglass-half mr-1"></i> Pesanan hangus dalam <strong>10 menit</strong> jika tidak dikonfirmasi!</div>
   <form id="ordF" onsubmit="submitOrder(event)">
@@ -736,14 +986,21 @@ window.onload=()=>{
 <!-- SUCCESS MODAL -->
 <div id="succM" class="modal">
 <div class="mbox">
-  <div class="text-center mb-5"><div style="width:72px;height:72px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin:0 auto 12px"><i class="fas fa-check-circle text-green-500 text-4xl"></i></div><h3 class="text-2xl font-bold text-gray-800" style="font-family:'Playfair Display',serif">Pesanan Berhasil!</h3><p class="text-gray-500 text-sm mt-1">Simpan ID pesanan untuk tracking</p></div>
-  <div class="bg-gray-50 rounded-xl p-4 mb-4 flex justify-between items-center"><div><p class="text-xs text-gray-400 mb-1">ID Pesanan</p><p id="sKode" class="font-mono font-bold text-lg text-gray-800"></p></div><button onclick="copyKode('sKode')" class="btn-s" style="padding:8px 14px;font-size:13px"><i class="fas fa-copy mr-1"></i>Salin</button></div>
+  <div class="text-center mb-5">
+    <div style="width:72px;height:72px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin:0 auto 12px"><i class="fas fa-check-circle text-green-500 text-4xl"></i></div>
+    <h3 class="text-2xl font-bold text-gray-800">Pesanan Berhasil!</h3>
+    <p class="text-gray-500 text-sm mt-1">Simpan ID pesanan untuk tracking</p>
+  </div>
+  <div class="bg-gray-50 rounded-xl p-4 mb-4 flex justify-between items-center">
+    <div><p class="text-xs text-gray-400 mb-1">ID Pesanan</p><p id="sKode" class="font-mono font-bold text-lg text-gray-800"></p></div>
+    <button onclick="copyKode('sKode')" class="btn-s" style="padding:8px 14px;font-size:13px"><i class="fas fa-copy mr-1"></i>Salin</button>
+  </div>
   <p class="text-sm text-gray-600 mb-4">Total: <span id="sTot" class="text-green-700 font-bold text-lg"></span></p>
   <div id="sRek" class="mb-4"></div>
-  <p class="text-xs text-gray-400 text-center mb-4">⏰ Konfirmasi transfer dalam <strong>10 menit</strong> via WhatsApp</p>
+  <p class="text-xs text-gray-400 text-center mb-4">&#9200; Konfirmasi transfer dalam <strong>10 menit</strong> via WhatsApp</p>
   <div class="flex flex-col gap-3">
     <button id="btnSWA" class="btn-w wf jc"><i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp</button>
-    <button onclick="document.getElementById('succM').classList.remove('show')" class="btn-s wf jc">Tutup</button>
+    <button onclick="el('succM').classList.remove('show')" class="btn-s wf jc">Tutup</button>
   </div>
 </div>
 </div>
@@ -751,13 +1008,16 @@ window.onload=()=>{
 <!-- RIWAYAT MODAL -->
 <div id="riwM" class="modal">
 <div class="mbox mlg">
-  <div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold" style="font-family:'Playfair Display',serif">📦 Riwayat Pesanan</h3><button onclick="document.getElementById('riwM').classList.remove('show')" style="width:32px;height:32px;border-radius:50%;background:#f3f4f6;border:none;cursor:pointer;font-size:16px;color:#6b7280">&times;</button></div>
-  <div class="flex gap-2 mb-4 flex-wrap">
-    <button class="otab active" onclick="loadRiwayat('all');this.closest('.flex').querySelectorAll('.otab').forEach(t=>t.classList.remove('active'));this.classList.add('active')">Semua</button>
-    <button class="otab" onclick="loadRiwayat('menunggu-pembayaran');this.closest('.flex').querySelectorAll('.otab').forEach(t=>t.classList.remove('active'));this.classList.add('active')">💰 Menunggu</button>
-    <button class="otab" onclick="loadRiwayat('proses');this.closest('.flex').querySelectorAll('.otab').forEach(t=>t.classList.remove('active'));this.classList.add('active')">⚙️ Proses</button>
-    <button class="otab" onclick="loadRiwayat('dikirim');this.closest('.flex').querySelectorAll('.otab').forEach(t=>t.classList.remove('active'));this.classList.add('active')">📦 Dikirim</button>
-    <button class="otab" onclick="loadRiwayat('selesai');this.closest('.flex').querySelectorAll('.otab').forEach(t=>t.classList.remove('active'));this.classList.add('active')">✅ Selesai</button>
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="text-xl font-bold">📦 Riwayat Pesanan</h3>
+    <button onclick="el('riwM').classList.remove('show')" style="width:32px;height:32px;border-radius:50%;background:#f3f4f6;border:none;cursor:pointer;font-size:16px;color:#6b7280">&times;</button>
+  </div>
+  <div class="flex gap-2 mb-4 flex-wrap" id="riwTabs">
+    <button class="otab active" onclick="setRiwTab(this,'all')">Semua</button>
+    <button class="otab" onclick="setRiwTab(this,'menunggu-pembayaran')">💰 Menunggu</button>
+    <button class="otab" onclick="setRiwTab(this,'proses')">⚙️ Proses</button>
+    <button class="otab" onclick="setRiwTab(this,'dikirim')">📦 Dikirim</button>
+    <button class="otab" onclick="setRiwTab(this,'selesai')">✅ Selesai</button>
   </div>
   <div id="riwList"></div>
 </div>
@@ -766,10 +1026,18 @@ window.onload=()=>{
 <!-- REVIEW MODAL -->
 <div id="revM" class="modal">
 <div class="mbox">
-  <div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold" style="font-family:'Playfair Display',serif">⭐ Tulis Ulasan</h3><button onclick="document.getElementById('revM').classList.remove('show')" style="width:32px;height:32px;border-radius:50%;background:#f3f4f6;border:none;cursor:pointer;font-size:16px;color:#6b7280">&times;</button></div>
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="text-xl font-bold">&#11088; Tulis Ulasan</h3>
+    <button onclick="el('revM').classList.remove('show')" style="width:32px;height:32px;border-radius:50%;background:#f3f4f6;border:none;cursor:pointer;font-size:16px;color:#6b7280">&times;</button>
+  </div>
   <div class="bg-green-50 rounded-xl p-4 mb-4"><p class="font-semibold text-green-800" id="revPnm"></p><p class="text-sm text-green-600">Bagikan pengalaman dengan produk ini</p></div>
-  <div class="mb-4"><p class="lbl text-center mb-2">Rating <span id="starLbl" class="text-amber-500 font-bold"></span></p>
-    <div class="starin" id="starIn"><i class="fas fa-star" data-v="1"></i><i class="fas fa-star" data-v="2"></i><i class="fas fa-star" data-v="3"></i><i class="fas fa-star" data-v="4"></i><i class="fas fa-star" data-v="5"></i></div>
+  <div class="mb-4">
+    <p class="lbl text-center mb-2">Rating <span id="starLbl" class="text-amber-500 font-bold"></span></p>
+    <div class="starin" id="starIn">
+      <i class="fas fa-star" data-v="1"></i><i class="fas fa-star" data-v="2"></i>
+      <i class="fas fa-star" data-v="3"></i><i class="fas fa-star" data-v="4"></i>
+      <i class="fas fa-star" data-v="5"></i>
+    </div>
   </div>
   <div class="fg"><label class="lbl">Ulasan Anda</label><textarea id="revTxt" rows="4" class="inp" placeholder="Ceritakan pengalaman menggunakan produk ini..."></textarea></div>
   <input type="hidden" id="revOid"><input type="hidden" id="revPid">
@@ -777,5 +1045,12 @@ window.onload=()=>{
 </div>
 </div>
 
+<script>
+function setRiwTab(btn,filter){
+  document.querySelectorAll("#riwTabs .otab").forEach(function(t){t.classList.remove("active");});
+  btn.classList.add("active");
+  loadRiwayat(filter);
+}
+</script>
 </body>
 </html>
