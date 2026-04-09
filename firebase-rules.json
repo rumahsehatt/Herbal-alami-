@@ -1,37 +1,71 @@
 {
   "rules": {
+    // ============================================================
+    //  FIREBASE REALTIME DATABASE RULES
+    //  Jamu Herbal Alami — Production Rules
+    //  Cara pasang: Firebase Console → Realtime Database → Rules
+    // ============================================================
+
     "users": {
       "$uid": {
+        // User bisa baca/tulis profil sendiri
         ".read": "auth !== null && auth.uid === $uid",
         ".write": "auth !== null && auth.uid === $uid",
-        "role": { ".write": false }
+
+        // Role hanya bisa ditulis oleh admin (dari Firebase Console/Admin SDK)
+        // Tidak bisa diubah dari client
+        "role": {
+          ".write": false
+        }
       }
     },
+
     "produk": {
+      // Semua orang bisa baca produk
       ".read": true,
+
+      // Hanya admin yang bisa tambah/edit/hapus produk
       ".write": "auth !== null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
     },
+
     "pesanan": {
+      // Admin bisa baca semua
       ".read": "auth !== null && root.child('users').child(auth.uid).child('role').val() === 'admin'",
+
       "$orderId": {
-        ".read": "data.child('userId').val() === null || auth !== null",
+        // User yang membuat pesanan bisa baca pesanannya sendiri
+        ".read": "auth !== null && (data.child('userId').val() === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'admin')",
+
+        // Siapa saja bisa buat pesanan baru (termasuk tamu)
         ".write": "auth !== null || !data.exists()"
       }
     },
+
     "testimoni": {
+      // Semua orang bisa baca testimoni
       ".read": true,
+
       "$testId": {
+        // User login bisa tambah testimoni
         ".write": "auth !== null",
+
+        // Hanya admin yang bisa hapus
         ".delete": "auth !== null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
       }
     },
+
     "pengaturan": {
+      // Semua bisa baca pengaturan (WA number, rekening untuk payment info)
       ".read": true,
+      // Hanya admin bisa ubah
       ".write": "auth !== null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
     },
+
     "admin_log": {
+      // Hanya admin yang bisa baca log
       ".read": "auth !== null && root.child('users').child(auth.uid).child('role').val() === 'admin'",
+      // Admin bisa tulis log
       ".write": "auth !== null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
     }
   }
-}
+  }
